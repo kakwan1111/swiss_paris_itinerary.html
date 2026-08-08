@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwan & Ella | 金秋歐陸浪漫蜜月之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #B8975D;
+            --light-gold: #E5D5B8;
+            --deep-navy: #0F172A;
+            --soft-ivory: #FAF9F6;
+            --warm-cream: #FDF6EC;
+        }
+
+        @keyframes ken-burns {
+            0% { transform: scale(1.05) translate(0, 0); }
+            50% { transform: scale(1.15) translate(-1%, -1%); }
+            100% { transform: scale(1.05) translate(0, 0); }
+        }
+        .animate-ken-burns { animation: ken-burns 30s ease-in-out infinite; will-change: transform; }
+
+        @keyframes gloss-shine {
+            to { background-position: 200% center; }
+        }
+        .title-gloss {
+            background: linear-gradient(145deg, #fff 0%, #f5e8c7 30%, #B8975D 50%, #f5e8c7 70%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gloss-shine 5s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--soft-ivory);
+            color: var(--deep-navy);
+            scroll-behavior: smooth;
+        }
+        .serif { font-family: 'Noto Serif TC', serif; }
+        .playfair { font-family: 'Playfair Display', serif; }
+
+        .rounded-premium { border-radius: 2.5rem; }
+        .rounded-inner { border-radius: 1.75rem; }
+
+        .animate-fade-in { animation: fadeIn 0.7s ease-out forwards; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .image-overlay {
+            background: linear-gradient(0deg, rgba(15,23,42,0.75) 0%, rgba(15,23,42,0.1) 55%, transparent 100%);
+        }
+
+        .day-btn {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .day-btn:hover { z-index: 10; transform: scale(1.15) translateY(-2px); }
+        .day-btn.active {
+            background: linear-gradient(135deg, #B8975D, #D4AF78);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.15) translateY(-2px);
+            z-index: 20;
+            box-shadow: 0 8px 20px rgba(184,151,93,0.45);
+        }
+        .day-btn.wedding-day {
+            border-color: #e879a0;
+            color: #be185d;
+        }
+        .day-btn.wedding-day.active {
+            background: linear-gradient(135deg, #e879a0, #f472b6);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(232,121,160,0.45);
+        }
+
+        .timeline-container::-webkit-scrollbar { height: 5px; }
+        .timeline-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+
+        #itinerary-map { height: 560px; width: 100%; border-radius: 1.75rem; }
+        .leaflet-container { font-family: 'Noto Sans TC', sans-serif; background: #f0ede8; }
+        .leaflet-popup-content-wrapper { border-radius: 1rem !important; box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important; border: none !important; padding: 0 !important; overflow: hidden; }
+        .leaflet-popup-content { margin: 0 !important; }
+        .leaflet-popup-tip { background: white !important; }
+
+        .map-marker-pulse::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        .highlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .highlight-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(184,151,93,0.15); }
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #B8975D, #D4AF78, #B8975D);
+        }
+
+        .hotel-card-img { transition: transform 0.5s ease; }
+        .hotel-card-img:hover { transform: scale(1.05); }
+
+        .hotel-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .hotel-table thead {
+            background: linear-gradient(90deg, #B8975D, #D4AF78);
+            color: white;
+        }
+
+        .hotel-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+        }
+
+        .hotel-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hotel-table tbody tr:hover {
+            background-color: #faf9f6;
+        }
+
+        .hotel-table tbody tr:nth-child(odd) {
+            background-color: #fefdfb;
+        }
+
+        .day-badge {
+            display: inline-block;
+            background: #B8975D;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .wedding-badge {
+            background: #e879a0 !important;
+        }
+
+        .chart-gradient { background: linear-gradient(135deg, #fefce8, #fff7ed); }
+
+        .route-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO SECTION ===== -->
+<section id="hero-section" class="relative h-screen w-full flex items-center justify-center text-white overflow-hidden">
+    <div id="parallax-wrapper" class="absolute inset-0 z-0">
+        <img id="hero-bg-img"
+             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80"
+             class="w-full h-full object-cover animate-ken-burns"
+
+        @keyframes gloss-shine {
+            to { background-position: 200% center; }
+        }
+        .title-gloss {
+            background: linear-gradient(145deg, #fff 0%, #f5e8c7 30%, #B8975D 50%, #f5e8c7 70%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gloss-shine 5s linear infinite;
+            display: inline-block;
+        }
+             alt="Alps Cover"
+             onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80'">
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.5) 100%);"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-6 max-w-5xl">
+        <div class="mb-6 inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
+            <span class="text-amber-300 text-xs font-bold uppercase tracking-widest">September 19 – October 3, 2026</span>
+        </div>
+        <span class="text-5xl md:text-7xl playfair italic font-bold text-amber-300 block mb-3 drop-shadow-lg">Kwan & Ella</span>
+        <h1 class="text-5xl md:text-8xl font-bold serif mb-6 leading-tight">
+            <span class="title-gloss">金秋歐陸</span><br>
+            <span class="text-white/90 text-3xl md:text-5xl mt-3 block font-light tracking-wider">浪漫蜜月之旅</span>
+        </h1>
+        <p class="text-base md:text-lg text-stone-300 mb-12 serif italic font-light max-w-2xl mx-auto leading-relaxed">
+            從巴黎的優雅光影到瑞士的高山純淨，刻劃專屬於我們的漫漫時光
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#itinerary" class="inline-block border border-white/30 bg-white/10 backdrop-blur-md px-10 py-3.5 rounded-full text-white font-bold hover:bg-white hover:text-slate-900 transition-all duration-300 text-sm tracking-wider">
+                開始探索旅程
+            </a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <svg width="24" height="36" viewBox="0 0 24 36" fill="none" stroke="white" stroke-width="2" opacity="0.7">
+            <rect x="1" y="1" width="22" height="34" rx="11" />
+            <circle cx="12" cy="10" r="3" fill="white" opacity="0.8">
+                <animate attributeName="cy" values="10;22;10" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+</section>
+
+<main id="itinerary" class="max-w-7xl mx-auto px-4 py-16">
+
+    <!-- ===== HIGHLIGHTS ===== -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
+        <div class="highlight-card bg-white p-7 rounded-premium border border-stone-100 shadow-sm flex flex-col items-center text-center">
+            <div class="text-3xl mb-3">✈️</div>
+            <span class="text-[10px] text-stone-400 mb-1 uppercase tracking-widest">旅程天數</span>
+            <span class="text-2xl font-bold serif">15 Days</span>
+            <span class="text-xs text-stone-400 mt-1">Paris → Zurich → Geneva</span>
+        </div>
+        <div class="highlight-card bg-white p-7 rounded-premium border border-stone-100 shadow-sm flex flex-col items-center text-center">
+            <div class="text-3xl mb-3">💍</div>
+            <span class="text-[10px] text-stone-400 mb-1 uppercase tracking-widest">婚紗拍攝</span>
+            <span class="text-2xl font-bold serif text-pink-600">2 Sessions</span>
+            <span class="text-xs text-stone-400 mt-1">D2 巴黎 · D7 格林德瓦</span>
+        </div>
+        <div class="highlight-card bg-white p-7 rounded-premium border border-stone-100 shadow-sm flex flex-col items-center text-center">
+            <div class="text-3xl mb-3">⛰️</div>
+            <span class="text-[10px] text-stone-400 mb-1 uppercase tracking-widest">最高海拔</span>
+            <span class="text-2xl font-bold serif">3,883 m</span>
+            <span class="text-xs text-stone-400 mt-1">Matterhorn Glacier Paradise</span>
+        </div>
+        <div class="highlight-card bg-white p-7 rounded-premium border border-stone-100 shadow-sm flex flex-col items-center text-center">
+            <div class="text-3xl mb-3">🚂</div>
+            <span class="text-[10px] text-stone-400 mb-1 uppercase tracking-widest">主要交通</span>
+            <span class="text-2xl font-bold serif">Air France</span>
+            <span class="text-xs text-stone-400 mt-1">+ Swiss Travel Pass</span>
+        </div>
+    </section>
+
+    <!-- ===== FLIGHT INFORMATION ===== -->
+    <section class="mb-20 bg-white p-8 md:p-10 rounded-premium border border-stone-100 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-stone-100 pb-6">
+            <div>
+                <span class="text-amber-600 font-bold text-xs tracking-widest uppercase block mb-1">Flight Information</span>
+                <h3 class="text-2xl md:text-3xl font-bold serif text-slate-900">航班資訊 (法國航空 Air France)</h3>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Flight 1 -->
+            <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/70 relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -right-4 -top-4 text-stone-200/50 text-7xl font-bold select-none">1</div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-md font-bold">去程長途</span>
+                        <span class="text-xs text-stone-500 font-medium">9月18日 (五)</span>
+                    </div>
+                    <div class="text-amber-700 text-xs font-bold mb-3 flex items-center gap-1.5">
+                        <span>✈️ 法國航空 AF185</span>
+                        <span class="text-stone-400">•</span>
+                        <span>13 hrs 30 mins</span>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-left">
+                            <div class="text-2xl font-bold text-slate-900">22:20</div>
+                            <div class="text-xs font-bold text-slate-700">HKG 香港 T1</div>
+                        </div>
+                        <div class="text-stone-300 font-bold text-xl px-2">➔</div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-slate-900">05:50<span class="text-xs text-amber-600 font-normal ml-0.5">+1日</span></div>
+                            <div class="text-xs font-bold text-slate-700">CDG 巴黎 T2E</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 flex justify-between">
+                    <span>9/18 22:20 出發</span>
+                    <span>9/19 05:50 抵達巴黎</span>
+                </div>
+            </div>
+
+            <!-- Flight 2 -->
+            <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/70 relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -right-4 -top-4 text-stone-200/50 text-7xl font-bold select-none">2</div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-md font-bold">歐陸跨國</span>
+                        <span class="text-xs text-stone-500 font-medium">9月22日 (二)</span>
+                    </div>
+                    <div class="text-amber-700 text-xs font-bold mb-3 flex items-center gap-1.5">
+                        <span>✈️ 法國航空 AF1614</span>
+                        <span class="text-stone-400">•</span>
+                        <span>1 hr 15 mins</span>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-left">
+                            <div class="text-2xl font-bold text-slate-900">12:40</div>
+                            <div class="text-xs font-bold text-slate-700">CDG 巴黎 T2F</div>
+                        </div>
+                        <div class="text-stone-300 font-bold text-xl px-2">➔</div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-slate-900">13:55</div>
+                            <div class="text-xs font-bold text-slate-700">ZRH 蘇黎世</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 flex justify-between">
+                    <span>Paris ➔ Zurich</span>
+                    <span>轉搭瑞士鐵路至格林德瓦</span>
+                </div>
+            </div>
+
+            <!-- Flight 3 -->
+            <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/70 relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -right-4 -top-4 text-stone-200/50 text-7xl font-bold select-none">3</div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-md font-bold">回程 (巴黎中轉)</span>
+                        <span class="text-xs text-stone-500 font-medium">10月3日 (六)</span>
+                    </div>
+                    <div class="text-amber-700 text-xs font-bold mb-3 flex items-center gap-1.5">
+                        <span>✈️ AF1043 + AF188</span>
+                        <span class="text-stone-400">•</span>
+                        <span>全程 15 hrs</span>
+                    </div>
+                    <div class="flex items-center justify-between my-2">
+                        <div class="text-left">
+                            <div class="text-xl font-bold text-slate-900">20:40</div>
+                            <div class="text-xs font-bold text-slate-700">GVA 日內瓦 T1</div>
+                        </div>
+                        <div class="text-stone-300 font-bold text-base px-1">➔</div>
+                        <div class="text-center">
+                            <div class="text-xs font-bold text-amber-600">CDG 中轉</div>
+                            <div class="text-[10px] text-stone-400">1h 35m</div>
+                        </div>
+                        <div class="text-stone-300 font-bold text-base px-1">➔</div>
+                        <div class="text-right">
+                            <div class="text-xl font-bold text-slate-900">17:40<span class="text-xs text-amber-600 font-normal ml-0.5">+1日</span></div>
+                            <div class="text-xs font-bold text-slate-700">HKG 香港 T1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 flex justify-between items-center">
+                    <span>AF1043 (GVA-CDG) + AF188 (CDG-HKG)</span>
+                    <span class="text-amber-700 font-semibold">10/4 17:40 返抵香港</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DAILY ITINERARY ===== -->
+    <section class="mb-24">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6 px-2">
+            <div>
+                <p class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-1">Day by Day</p>
+                <h2 class="text-3xl font-bold serif">每日詳盡日誌</h2>
+            </div>
+            <div class="flex gap-2.5 timeline-container overflow-x-auto py-4 px-2 w-full md:w-auto items-center" id="day-buttons"></div>
+        </div>
+        <div id="day-detail-display" class="bg-white rounded-premium shadow-2xl border border-stone-100 overflow-hidden min-h-[700px]"></div>
+    </section>
+
+    <!-- ===== HOTELS SUMMARY TABLE ===== -->
+    <section id="hotels-summary" class="mb-24 bg-white p-8 md:p-10 rounded-premium border border-stone-100 shadow-sm">
+        <div class="mb-8">
+            <p class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-2">Complete Accommodation Guide</p>
+            <h3 class="text-3xl font-bold serif text-slate-900 mb-2">15天住宿清單</h3>
+            <p class="text-stone-400 text-sm italic">精選奢華飯店與獨特民宿，每晚詳細資訊</p>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="hotel-table">
+                <thead>
+                    <tr>
+                        <th>天數</th>
+                        <th>城市</th>
+                        <th>飯店名稱</th>
+                        <th>特色亮點</th>
+                        <th>海拔</th>
+                        <th>預計溫度</th>
+                    </tr>
+                </thead>
+                <tbody id="hotel-table-body">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== ROUTE MAP ===== -->
+    <section class="mb-24 bg-white p-8 md:p-10 rounded-premium border border-stone-100 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+            <div>
+                <p class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-2">Interactive Route</p>
+                <h3 class="text-3xl font-bold serif text-slate-900 mb-1">歐陸壯遊路線圖</h3>
+                <p class="text-stone-400 text-sm italic">Grand European Honeymoon Route · Click markers for details</p>
+            </div>
+            <div class="text-right">
+                <span class="text-amber-600 font-bold serif tracking-widest text-sm">Paris → Zurich → Geneva · 15 Days</span>
+            </div>
+        </div>
+
+        <div class="mb-6 flex flex-wrap gap-2">
+            <span class="route-badge bg-indigo-50 text-indigo-700 border border-indigo-100">🗼 D1–D3 巴黎</span>
+            <span class="route-badge bg-sky-50 text-sky-700 border border-sky-100">🏙️ D4–D5 蘇黎世</span>
+            <span class="route-badge bg-amber-50 text-amber-700 border border-amber-100">💍 D6–D8 格林德瓦</span>
+            <span class="route-badge bg-emerald-50 text-emerald-700 border border-emerald-100">🏔️ D9 琉森·瑞吉山</span>
+            <span class="route-badge bg-red-50 text-red-700 border border-red-100">⛰️ D10–D12 策馬特</span>
+            <span class="route-badge bg-violet-50 text-violet-700 border border-violet-100">🏛️ D13 洛桑</span>
+            <span class="route-badge bg-teal-50 text-teal-700 border border-teal-100">⌚ D14–D15 日內瓦</span>
+        </div>
+
+        <div id="itinerary-map" class="shadow-inner border border-stone-100 rounded-3xl overflow-hidden"></div>
+
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-6 text-xs text-stone-500">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-6 h-0.5 bg-amber-400" style="border-top: 2px dashed #B8975D;"></span>
+                <span>景觀鐵路 / 公路路線</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-pink-400 inline-block"></span>
+                <span>婚攝地點</span>
+            </div>
+            <div class="text-stone-400">點擊標記查看詳情</div>
+        </div>
+    </section>
+
+    <!-- ===== ALTITUDE CHART ===== -->
+    <section class="mb-20 chart-gradient p-8 md:p-10 rounded-premium border border-amber-100/50 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+            <div>
+                <p class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-2">Elevation Profile</p>
+                <h3 class="text-2xl font-bold serif text-slate-900 mb-1">海拔高度變化分析</h3>
+                <p class="text-stone-400 text-sm italic">Altitude Variation Throughout the Journey</p>
+            </div>
+            <div class="text-right">
+                <span class="text-xs text-stone-400 block mb-1">最高點 Peak Altitude</span>
+                <span class="text-4xl font-bold serif text-amber-600">3,883m</span>
+                <span class="text-xs text-stone-400 block">Matterhorn Glacier Paradise</span>
+            </div>
+        </div>
+        <div class="relative h-[280px] w-full bg-white/60 rounded-2xl p-4">
+            <canvas id="altitudeChart"></canvas>
+        </div>
+    </section>
+
+    <!-- ===== BUDGET OVERVIEW ===== -->
+    <section class="mb-24 bg-gradient-to-br from-amber-50 to-stone-50 p-8 md:p-10 rounded-premium border border-amber-100/50 shadow-sm">
+        <div class="mb-8">
+            <p class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-2">Honeymoon Budget Planner</p>
+            <h3 class="text-3xl font-bold serif text-slate-900 mb-2">蜜月預算概覽</h3>
+            <p class="text-stone-400 text-sm italic">15天歐陸蜜月之旅完整費用估算（幣種：HKD）</p>
+        </div>
+
+        <div id="budget-container" class="space-y-6">
+            <!-- Budget sections will be dynamically inserted here -->
+        </div>
+
+        <div class="mt-10 pt-8 border-t-2 border-amber-200 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center">
+                <div class="text-amber-600 text-xs font-bold uppercase tracking-widest mb-2">各類支出佔比</div>
+                <canvas id="expenseChart" class="max-w-full"></canvas>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 md:col-span-2 space-y-4">
+                <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+                    <span class="text-stone-600 font-semibold">各類別小計</span>
+                    <span class="text-stone-400 text-sm">（HKD）</span>
+                </div>
+                <div id="category-summary" class="space-y-2">
+                    <!-- Category summaries will be inserted here -->
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t-2 border-amber-300 bg-amber-50 p-4 rounded-lg">
+                    <span class="text-slate-900 font-bold text-lg">🎉 總預算</span>
+                    <span id="total-budget" class="text-2xl font-bold text-amber-700">--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
+            <p class="text-blue-900 text-sm leading-relaxed">
+                <strong>💡 提示：</strong>上述預算為估算值，實際費用可能因季節、匯率波動及個人選擇而異。如需調整預算項目，請直接編輯同目錄下的 <code class="bg-white px-2 py-1 rounded border border-blue-300">expenses.js</code> 文件，修改各項金額後重新整理網頁即可自動更新。
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-white py-14 border-t border-stone-100 text-center">
+    <div class="max-w-md mx-auto">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="h-px w-12 bg-gradient-to-r from-transparent to-amber-300"></div>
+            <span class="text-amber-500 font-bold playfair italic text-lg">A Journey of Love</span>
+            <div class="h-px w-12 bg-gradient-to-l from-transparent to-amber-300"></div>
+        </div>
+        <p class="text-stone-400 text-xs tracking-widest uppercase mb-2">September 19 – October 3, 2026</p>
+        <p class="text-stone-300 text-[10px] tracking-widest uppercase">&copy; 2026 Kwan & Ella Private Honeymoon Itinerary · Designed for Excellence</p>
+    </div>
+</footer>
+
+<script>
+// ==================== UPDATED ITINERARY DATA (15 Days) ====================
+const itineraryData = {
+    1: { date: "9/19 (六)", location: "巴黎 Paris", title: "抵達巴黎 ➔ 凱旋門與左岸漫步", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80", altitude: 35, segment: "paris", temp: "14°C", am: "清晨 05:50 班機（法航 AF185，前夜 22:20 香港 HKG 啟程）順利降落巴黎戴高樂機場 T2E。辦理入境後直奔飯店寄存行李/入住，將婚紗與西裝掛起防皺。", pm: "下午：前往凱旋門與香榭麗舍大道優雅漫步，感受巴黎浪漫午後氛圍。探訪艾菲爾鐵塔廣場，欣賞鐵塔黃昏剪影。", eve: "傍晚：與巴黎攝影團隊面談，確認明早清晨梳化時間與拍攝路線細節。於蒙馬特小館享用法式晚餐。", logistics: "航班：AF185 (HKG 22:20 ➔ CDG 05:50)。住宿 Villa Alessandra 位於凱旋門附近，步行可達香榭麗舍大道。今日重點在於調整時差與整裝備戰。", accommodation: "🏨 典雅首選：Villa Alessandra Hotel Charmante", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/oYIruwpBVrkSeNTk.jpg", food: "法式精緻馬卡龍", foodDesc: "於 Ladurée 品嚐最正宗的法式甜點，開啟蜜月甜蜜序章。" },
+    2: { date: "9/20 (日)", location: "巴黎 Paris", title: "✨ 巴黎婚攝大日 (TBC)", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80", altitude: 35, segment: "paris", isWedding: true, temp: "15°C", am: "【婚攝日 TBC】清晨梳化完成後，前往巴黎經典地標取景。艾菲爾鐵塔晨光、羅浮宮廣場、塞納河畔——每一幀都是永恆的愛情印記。", pm: "【婚攝日 TBC】午後繼續於巴黎秘境取景，具體路線視乎攝影團隊安排與天氣彈性調整。", eve: "【婚攝日 TBC】拍攝圓滿後，於塞納河畔精緻餐廳享用慶功晚宴，慶祝巴黎婚攝完美收官。", logistics: "【TBC 待定】全日拍攝行程與交通動線暫未定案，待與攝影團隊確定後更新。建議前一晚早睡，保持最佳狀態。", accommodation: "🏨 續住：Villa Alessandra Hotel Charmante", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/JfvRRVsQoKrZbBfs.jpg", food: "待定 TBC", foodDesc: "視乎當日拍攝進度彈性安排，確保最佳狀態迎接鏡頭。" },
+    3: { date: "9/21 (一)", location: "巴黎 Paris", title: "精品購物 ➔ 塞納河景觀晚宴", image: "https://images.unsplash.com/photo-1431274172761-fca41d930114?auto=format&fit=crop&w=1200&q=80", altitude: 35, segment: "paris", temp: "13°C", am: "睡到自然醒，悠閒享用法式早餐（牛角包 + 拿鐵）。漫步瑪黑區 (Le Marais) 探索精品小店與藝廊。", pm: "前往蒙田大道 (Avenue Montaigne) 與香榭麗舍大道採購，完成退稅手續。下午茶於 Angelina 品嚐熱巧克力。", eve: "預訂塞納河遊船晚餐（Bateaux Parisiens），於流動的光影中慶祝巴黎段圓滿。整理行李準備明日飛往瑞士。", logistics: "明日中午需前往 CDG 機場搭乘 AF1614 (12:40) 飛往蘇黎世，建議今日整理行李並準備好退稅單據。", accommodation: "🏨 續住：Villa Alessandra Hotel Charmante", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/oYIruwpBVrkSeNTk.jpg", food: "塞納河遊船晚宴", foodDesc: "於流動的巴黎光影中享用法式精緻料理，為巴黎段畫上完美句點。" },
+    4: { date: "9/22 (二)", location: "蘇黎世 Zurich", title: "飛抵蘇黎世 ➔ 舊城區與湖畔漫步", image: "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=1200&q=80", altitude: 408, segment: "zurich", temp: "12°C", am: "中午 12:40 搭乘法航 AF1614 (巴黎 CDG T2F ➔ 蘇黎世 ZRH 13:55)。抵達後搭乘 S-Bahn 列車（僅 10 分鐘）前往市中心飯店辦理入住。", pm: "漫步班霍夫大道 (Bahnhofstrasse) 精品街、舊城區 (Altstadt) 與林登霍夫丘陵 (Lindenhof)，俯瞰利馬特河與老城優雅建築。", eve: "傍晚至蘇黎世湖畔 (Lake Zurich) 散步，於老城精緻餐廳享用蘇黎世小牛肉 Zürcher Geschnetzeltes 慶祝晚餐。", logistics: "航班：AF1614 (CDG T2F 12:40 ➔ ZRH 13:55)。今日步調輕鬆，於蘇黎世市區漫步調整狀態。明日前往瑞士蓮巧克力之家。", accommodation: "🏨 市中心精品：Storchen Zürich Lifestyle Boutique Hotel", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/aiulyeYjPGCjZWeb.jpg", food: "蘇黎世小牛肉 Zürcher Geschnetzeltes", foodDesc: "搭配香煎馬鈴薯餅 Rösti，瑞士德語區最經典代表名菜。" },
+    5: { date: "9/23 (三)", location: "蘇黎世 Zurich", title: "瑞士蓮巧克力之家 ➔ 烏利山展望台 ➔ 蘇黎世湖畔漫步", image: "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=1200&q=80", altitude: 408, segment: "zurich", temp: "12°C", am: "上午參訪瑞士蓮巧克力之家 (Lindt Home of Chocolate)，探索瑞士巧克力製作工藝與品嚐限定巧克力。親手製作屬於自己的巧克力紀念品。", pm: "搭乘烏利山纜車 (Uetliberg) 登上蘇黎世最佳觀景點 (871m)，俯瞰蘇黎世全景、利馬特河與遠方的阿爾卑斯山脈。", eve: "漫步蘇黎世湖畔 (Lake Zurich)，享受傍晚湖光山色，於湖邊精緻餐廳享用晚宴，為蘇黎世段畫上完美句點。", logistics: "續住 Storchen Zürich。明日搭乘火車前往格林德瓦，開始高山蜜月之旅。", accommodation: "🏨 續住：Storchen Zürich Lifestyle Boutique Hotel", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/aiulyeYjPGCjZWeb.jpg", food: "瑞士蓮巧克力與湖畔晚宴", foodDesc: "品嚐世界頂級巧克力，於蘇黎世湖畔享受浪漫晚餐。" },
+    6: { date: "9/24 (四)", location: "格林德瓦 Grindelwald", title: "前往格林德瓦 ➔ First 懸崖步道 ➔ 山坡漫步", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/ZCJiDUdpfdqISzeT.jpg", altitude: 1034, segment: "grindelwald", temp: "9°C", am: "搭乘火車前往格林德瓦，入住 Hotel Spinne 設計精品飯店。上午登上 First (2,168m)，體驗 Cliff Walk by Tissot 懸崖步道的驚險與壯闊。", pm: "於格林德瓦夢幻山坡 (Grindelwald Chalet Slope) 漫步，欣賞艾格峰北壁與瑞士木屋風景，拍攝明日婚攝的勘景照片。", eve: "回飯店享受壁爐，自煮高山牛排晚餐，早點休息迎接明日格林德瓦婚攝大日。", logistics: "使用 Swiss Travel Pass 輕鬆搭乘景觀列車。今日是婚攝前的最後準備日，充分休息。", accommodation: "🏨 設計精品：Hotel Spinne Grindelwald", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/eiEMrEyhRPgGHypD.jpg", food: "高山風味薯餅 Rösti", foodDesc: "瑞士最經典的馬鈴薯料理，能量滿點，為明日婚攝補充體力。" },
+    7: { date: "9/25 (五)", location: "格林德瓦 Grindelwald", title: "✨ 夢幻山坡與艾格峰婚攝大日", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/ZCJiDUdpfdqISzeT.jpg", altitude: 1034, segment: "grindelwald", isWedding: true, temp: "8°C", am: "【格林德瓦婚攝大日】清晨梳化完成後，直奔格林德瓦夢幻山坡（Grindelwald Chalet Slope），捕捉晨光下艾格峰北壁 (Eiger Nordwand) 與瑞士小木屋的經典浪漫畫面。", pm: "午後前往格林德瓦周邊高山草原與私房秘境取景，捕抓阿爾卑斯山脈金秋專屬暖色調。", eve: "拍攝圓滿完成！於飯店露台點燃壁爐，品嚐特製瑞士烤起司 Raclette 與白酒慶功，於艾格峰星空下乾杯。", logistics: "全日於格林德瓦及周邊定點拍攝，無跨區拉車負擔，極致輕鬆舒適。這是整個蜜月旅程最重要的一天之一。", accommodation: "🏨 續住：Hotel Spinne Grindelwald", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/eiEMrEyhRPgGHypD.jpg", food: "慶功烤起司餐 Raclette", foodDesc: "搭配格林德瓦當地白葡萄酒，在艾格峰腳下慶祝婚攝圓滿。" },
+    8: { date: "9/26 (六)", location: "藍湖 & 伊瑟爾特瓦爾德", title: "💎 藍湖秘境 ➔ 伊瑟爾特瓦爾德 (Iseltwald) 一日遊", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/TdTWdfksXJSINjAm.jpg", altitude: 567, segment: "interlaken", temp: "10°C", am: "前往瑞士最夢幻的秘境——Blausee（藍湖）。這個隱藏於森林中的天然湖泊以其晶瑩剔透的藍色湖水聞名，是瑞士最美的高山湖泊之一。沿著湖畔漫步，拍攝倒影中的山峰與森林。", pm: "前往伊瑟爾特瓦爾德 (Iseltwald) 碼頭，拍攝《愛的迫降》取景地的浪漫湖景。於湖邊餐廳享用瑞士特色料理，欣賞湖光山色。", eve: "回格林德瓦享受最後一晚，於飯店享用特製晚宴，慶祝婚攝後的美好時光。", logistics: "此日步調轉為放鬆，方便調整連續拍攝後的體力。Iseltwald 碼頭建議平日早晨前往，避開人潮。", accommodation: "🏨 續住：Hotel Spinne Grindelwald", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/eiEMrEyhRPgGHypD.jpg", food: "湖鮮白酒燉魚", foodDesc: "取自布里恩茨湖的新鮮漁獲，搭配瑞士白葡萄酒，清新怡人。" },
+    9: { date: "9/27 (日)", location: "琉森 & 瑞吉山", title: "前往琉森 ➔ 登上瑞吉山溫泉秘境", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80", altitude: 1433, segment: "rigi", temp: "9°C", am: "搭乘景觀列車前往琉森（約 1.5 小時），漫步卡貝爾橋 (Kapellbrücke)、垂死獅子像 (Löwendenkmal) 與琉森湖老城區。", pm: "午後於琉森碼頭搭乘渡輪穿越湖光山色，轉乘齒軌火車登上「山后」瑞吉山 (Rigi 1,797m)。入住 Rigi Kaltbad 溫泉酒店。", eve: "於無邊際 Alpine Mineral Bath 戶外溫泉泡湯，欣賞琉森湖與阿爾卑斯晚霞色溫，感受天地之間的純粹浪漫。", logistics: "憑 Swiss Travel Pass 可免費搭乘琉森湖渡輪與瑞吉山齒軌火車。溫泉飯店提供頂級放鬆體驗，是旅途中最治癒的一夜。", accommodation: "🏨 山后秘境：Rigi Kaltbad Swiss Quality Hotel", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/vaVzLonXFmaqNrXX.jpg", food: "阿爾卑斯香草養生晚餐", foodDesc: "於山頂飯店享用在地食材創作料理，搭配瑞士高山藥草茶。" },
+    10: { date: "9/28 (一)", location: "策馬特 Zermatt", title: "登頂歐洲之巔少女峰 ➔ 直奔馬特洪峰", image: "https://media.myswitzerland.com/image/fetch/c_lfill,g_auto,w_3200,h_1800/f_auto,q_80,fl_keep_iptc/https://www.myswitzerland.com/-/media/dam/resources/places/j/u/jungfraujoch/meta%20page%20image%20all%20season/39090_32001800.jpeg", altitude: 3454, segment: "zermatt", temp: "5°C", am: "搭乘艾格快線 (Eiger Express) 登頂少女峰 (Jungfraujoch 3,454m)，於全歐最高火車站留影，探索冰宮與雪地世界。", pm: "下午搭乘景觀列車順向前往無煙小鎮策馬特（約 2.5 小時），沿途欣賞羅訥河谷壯麗景色。入住 Resort La Ginabelle Zermatt。", eve: "於飯店享受頂級 SPA 設施，遠眺馬特洪峰傍晚輪廓，於飯店餐廳享用精緻晚宴，體驗高山度假村的獨特體驗。", logistics: "策馬特禁燃油車，抵達 Täsch 車站後轉乘電動接駁車進入策馬特。Resort La Ginabelle 提供專屬電車接送服務。", accommodation: "🏨 五星度假村：Resort La Ginabelle Zermatt", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/gzrVwIRoddymASTN.webp", food: "高海拔手工巧克力", foodDesc: "在少女峰觀景台品嚐極致甜美，海拔 3,454m 的甜蜜滋味。" },
+    11: { date: "9/29 (二)", location: "策馬特 Zermatt", title: "葛納葛特景觀鐵路 ➔ 利菲爾湖倒影", image: "https://twoslowbyron.com/wp-content/uploads/2024/07/DSC05755-4.jpg", altitude: 3130, segment: "zermatt", temp: "6°C", am: "搭乘 Gornergrat 齒軌鐵路登上 3,089m 展望台，遠眺馬特洪峰與 29 座 4,000m 以上高峰壯麗景緻。", pm: "搭鐵路至 Rotenboden 站，輕鬆徒步 15 分鐘至利菲爾湖 (Riffelsee)，拍攝馬特洪峰經典水面倒影——全球最美倒影之一。", eve: "回到 Resort La Ginabelle，於飯店高山恆溫泳池與奢華 SPA 充分舒緩連日車程體力，於星空下享用晚宴。", logistics: "續住 Resort La Ginabelle，無需打包行李，完美消化所有高山景點。Swiss Travel Pass 可享折扣。", accommodation: "🏨 續住：Resort La Ginabelle Zermatt", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/gzrVwIRoddymASTN.webp", food: "起司火鍋 Fondue", foodDesc: "策馬特最受歡迎的靈魂料理，在馬特洪峰腳下品嚐最道地的瑞士風味。" },
+    12: { date: "9/30 (三)", location: "策馬特 Zermatt", title: "馬特洪峰冰川天堂 ➔ 蘇內加陽光台", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/sHgQErfgHoAZuGdb.jpg", altitude: 3883, segment: "zermatt", temp: "4°C", am: "搭乘全歐洲最高纜車前往馬特洪峰冰川天堂 (Matterhorn Glacier Paradise 3,883m)，欣賞 360 度阿爾卑斯群峰全景與冰宮，感受極致壯闊。", pm: "午後搭乘地下纜車前往蘇內加 (Sunnegga 2,288m) 陽光台，悠閒喝咖啡或於五湖步道起點輕健行，欣賞馬特洪峰另一角度。", eve: "於鎮上精緻餐廳享用瑞士高山燒烤或黑鼻羊風味排餐，享受策馬特最後一個浪漫夜色。", logistics: "策馬特最後一晚，無需打包行李。冰川天堂建議清晨出發，天氣最為清晰。", accommodation: "🏨 續住：Resort La Ginabelle Zermatt", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/gzrVwIRoddymASTN.webp", food: "黑鼻羊風味排餐", foodDesc: "策馬特當地特產黑鼻羊 (Blacknose Sheep) 與高山農場風味，獨一無二的在地美饌。" },
+    13: { date: "10/1 (木)", location: "洛桑 Lausanne", title: "告別策馬特 ➔ 萊芒湖畔奧林匹克之都", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/TUJPHErdTlAbGfNE.jpg", altitude: 372, segment: "lausanne", temp: "12°C", am: "享用豐盛早餐後離開策馬特，搭乘列車沿羅訥河谷前往萊芒湖畔名城——洛桑 (Lausanne)，車程約 2.5 小時，沿途景色優美。", pm: "入住洛桑湖畔飯店，漫步烏希碼頭 (Ouchy Promenade) 與奧林匹克公園，感受浪漫法語區風情。探訪洛桑大教堂 (Lausanne Cathedral)。", eve: "於湖畔景觀餐廳品嚐萊芒湖鮮魚料理（香煎白魚 Féra），搭配優雅沃州白葡萄酒，享受法語區精緻生活。", logistics: "洛桑是策馬特前往日內瓦的理想中轉站，路線流暢優雅。Château d'Ouchy 飯店直接面向萊芒湖，景色絕美。", accommodation: "🏨 萊芒湖畔精品：Château d'Ouchy Lausanne", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/HiwTvkmzydLVaJOI.jpg", food: "萊芒湖香煎白魚 Féra", foodDesc: "配上瑞士法語區沃州白葡萄酒，感受萊芒湖畔的精緻法語區風情。" },
+    14: { date: "10/2 (五)", location: "日內瓦 Geneva", title: "前往日內瓦 ➔ 舊城區 ➔ 精品購物", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/EOYTyDtxYTLEwblR.webp", altitude: 375, segment: "geneva", temp: "13°C", am: "乘列車由洛桑輕鬆前往日內瓦（約 35 分鐘），提前入住日內瓦五星級奢華飯店 Hôtel Longemalle。", pm: "漫步日內瓦舊城區 (Vieille Ville)、登上聖皮耶大教堂 (Cathédrale Saint-Pierre) 俯瞰全市，並前往大噴泉 (Jet d'Eau) 拍照留念。", eve: "於日內瓦老城法式餐館享用浪漫晚宴，探索 Rue du Rhône 精品街，品味日內瓦的奢華與精緻。", logistics: "日內瓦是歐洲最富裕的城市之一，精品購物首選。Hôtel Longemalle 位於市中心，步行可達所有主要景點。", accommodation: "🏨 奢華首選：Hôtel Longemalle Geneva", stayImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/wbiCcuDLwqPuBPMg.jpg", food: "法式紅酒燉牛肉 Boeuf Bourguignon", foodDesc: "法語區經典溫馨主菜，搭配日內瓦精選紅酒，為蜜月之旅添上最後的浪漫滋味。" },
+    15: { date: "10/3 (六)", location: "日內瓦離境 Return", title: "湖畔晨光 ➔ 悠閒退稅返港", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663880362422/EOYTyDtxYTLEwblR.webp", altitude: 375, segment: "geneva", temp: "12°C", am: "在飯店享用豐盛法式早餐，於萊芒湖畔做最後的晨間散步，感受日內瓦的靜謐晨光。做最後的輕便打包與整理。", pm: "搭車前往日內瓦機場 GVA T1（僅需 15 分鐘！）。輕鬆完成海關退稅與行李託運。20:40 搭乘 AF1043 飛往巴黎 CDG T2F (21:55 到達)。", eve: "在巴黎 CDG 順暢中轉 (1h 35m)，23:30 轉乘法航 AF188 (CDG T2E ➔ HKG T1)，於次日 10/4 (日) 17:40 滿載甜蜜回憶順利抵達香港。", logistics: "航班：AF1043 (GVA 20:40 ➔ CDG 21:55) + AF188 (CDG 23:30 ➔ HKG 17:40+1)。日內瓦機場極速通關，完美結束 15 天蜜月之旅。", accommodation: "✈️ 溫馨機艙（AF188 跨夜航班）", stayImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=75", food: "機上法式晚宴", foodDesc: "於萬呎高空品嚐法國航空精選美酒佳餚，回味 15 天的美好記憶。" }
+};
+
+// ==================== HOTEL SUMMARY DATA ====================
+const hotelData = [
+    { day: "D1–D3", city: "巴黎", hotel: "Villa Alessandra Hotel Charmante", feature: "凱旋門附近 · 典雅設計", altitude: 35, temp: "13–15°C" },
+    { day: "D4–D5", city: "蘇黎世", hotel: "Storchen Zürich", feature: "利馬特河畔 · 精品設計", altitude: 408, temp: "11–13°C" },
+    { day: "D6–D8", city: "格林德瓦", hotel: "Hotel Spinne Grindelwald", feature: "設計精品 · 艾格峰景觀", altitude: 1034, temp: "8–10°C" },
+    { day: "D9", city: "琉森 · 瑞吉山", hotel: "Rigi Kaltbad Swiss Quality Hotel", feature: "山頂溫泉 · 無邊際浴池", altitude: 1433, temp: "8–10°C" },
+    { day: "D10–D12", city: "策馬特", hotel: "Resort La Ginabelle Zermatt", feature: "五星度假村·馬特洪峰景", altitude: 1620, temp: "4–6°C" },
+    { day: "D13", city: "洛桑", hotel: "Château d'Ouchy", feature: "萊芒湖畔城堡 · 法語區優雅", altitude: 372, temp: "12–14°C" },
+    { day: "D14–D15", city: "日內瓦", hotel: "Hôtel Longemalle Geneva", feature: "市中心精品 · 精品街毗鄰", altitude: 375, temp: "12–14°C" }
+];
+
+// ==================== RENDER FUNCTIONS ====================
+function renderDay(dayNum) {
+    document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
+    const currentBtn = document.getElementById(`btn-day-${dayNum}`);
+    if (currentBtn) currentBtn.classList.add('active');
+
+    const data = itineraryData[dayNum];
+    if (!data) return;
+
+    const container = document.getElementById('day-detail-display');
+    if (!container) return;
+
+    const weddingBanner = data.isWedding ? `
+        <div class="absolute top-4 right-4 z-20">
+            <div class="bg-pink-500/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                <span>💍</span> 婚攝大日 Wedding Day
+            </div>
+        </div>
+    ` : '';
+
+    container.innerHTML = `
+        <div class="animate-fade-in flex flex-col h-full">
+            <div class="relative h-72 md:h-96 w-full overflow-hidden">
+                <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b'">
+                <div class="absolute inset-0 image-overlay flex flex-col justify-end p-6 md:p-10 text-white">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="${data.isWedding ? 'bg-pink-500' : 'bg-amber-500'} text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow">Day ${dayNum}</span>
+                        <span class="text-amber-200 text-sm font-semibold">${data.date}</span>
+                        <span class="text-stone-300 text-sm">| ${data.location}</span>
+                        <span class="ml-auto text-xs bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full text-stone-200 flex items-center gap-2">
+                            <span>⛰️ ${data.altitude} m</span>
+                            <span>🌡️ ${data.temp}</span>
+                        </span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold serif text-white drop-shadow-lg leading-tight">${data.title}</h3>
+                </div>
+                ${weddingBanner}
+            </div>
+
+            <div class="p-6 md:p-10 space-y-8 flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50/30 p-6 rounded-2xl border border-amber-100/80 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center text-base">🌅</div>
+                            <h4 class="font-bold text-amber-900 text-sm uppercase tracking-wide">上午 Morning</h4>
+                        </div>
+                        <p class="text-stone-700 text-sm leading-relaxed">${data.am}</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-sky-50 to-blue-50/30 p-6 rounded-2xl border border-sky-100/80 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center text-base">☀️</div>
+                            <h4 class="font-bold text-sky-900 text-sm uppercase tracking-wide">下午 Afternoon</h4>
+                        </div>
+                        <p class="text-stone-700 text-sm leading-relaxed">${data.pm}</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-violet-50 to-purple-50/30 p-6 rounded-2xl border border-violet-100/80 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center text-base">🌙</div>
+                            <h4 class="font-bold text-violet-900 text-sm uppercase tracking-wide">傍晚 Evening</h4>
+                        </div>
+                        <p class="text-stone-700 text-sm leading-relaxed">${data.eve}</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <h4 class="text-amber-400 font-bold text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <span>📌</span> 交通與當日叮嚀 Logistics & Tips
+                    </h4>
+                    <p class="text-stone-300 text-sm leading-relaxed relative z-10">${data.logistics}</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="bg-stone-50 rounded-2xl border border-stone-200/80 overflow-hidden flex flex-col md:flex-row group">
+                        <div class="md:w-2/5 h-44 md:h-auto relative overflow-hidden flex-shrink-0">
+                            <img src="${data.stayImage}" alt="Accommodation" class="w-full h-full object-cover hotel-card-img" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="p-5 md:w-3/5 flex flex-col justify-center">
+                            <span class="text-[10px] text-amber-700 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
+                                🏨 Accommodation 住宿推薦
+                            </span>
+                            <h5 class="font-bold text-slate-900 text-sm leading-snug">${data.accommodation}</h5>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-stone-50 to-amber-50/30 rounded-2xl border border-stone-200/80 p-6 flex flex-col justify-center">
+                        <span class="text-[10px] text-amber-700 font-bold uppercase tracking-wider mb-2">🍽️ Culinary Highlight 特色美食</span>
+                        <h5 class="font-bold text-slate-900 text-base mb-2">${data.food}</h5>
+                        <p class="text-stone-500 text-sm leading-relaxed">${data.foodDesc}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderHotelTable() {
+    const tbody = document.getElementById('hotel-table-body');
+    if (!tbody) return;
+
+    tbody.innerHTML = hotelData.map(hotel => `
+        <tr>
+            <td><span class="day-badge">${hotel.day}</span></td>
+            <td class="font-semibold text-amber-700">${hotel.city}</td>
+            <td class="font-semibold">${hotel.hotel}</td>
+            <td class="text-stone-600 text-sm">${hotel.feature}</td>
+            <td class="text-center"><span class="text-xs bg-stone-100 px-2 py-1 rounded">${hotel.altitude}m</span></td>
+            <td class="text-center font-semibold text-red-600">${hotel.temp}</td>
+        </tr>
+    `).join('');
+}
+
+function initRouteMap() {
+    const locations = [
+        { name: "巴黎 Paris", coords: [48.8566, 2.3522], day: "D1–D3", desc: "法航 AF185 抵達 CDG T2E · D2 婚攝日", color: "#6366f1", isWedding: true, icon: "🗼" },
+        { name: "蘇黎世 Zurich", coords: [47.3769, 8.5417], day: "D4–D5", desc: "舊城區、瑞士蓮巧克力之家、烏利山展望台", color: "#0ea5e9", icon: "🏙️" },
+        { name: "格林德瓦 Grindelwald", coords: [46.6242, 8.0414], day: "D6–D8", desc: "First 懸崖步道 · D7 格林德瓦婚攝大日 · 藍湖 · 伊瑟爾特瓦爾德", color: "#f59e0b", isWedding: true, icon: "💍" },
+        { name: "琉森 & 瑞吉山 Rigi", coords: [47.0111, 8.4847], day: "D9", desc: "琉森老城 · 登上瑞吉山山后溫泉秘境", color: "#10b981", icon: "🏔️" },
+        { name: "策馬特 Zermatt", coords: [46.0207, 7.7491], day: "D10–D12", desc: "少女峰 · 葛納葛特 · 利菲爾湖倒影 · 冰川天堂 3,883m", color: "#dc2626", icon: "⛰️" },
+        { name: "洛桑 Lausanne", coords: [46.5197, 6.6323], day: "D13", desc: "萊芒湖畔 · 奧林匹克公園 · Château d'Ouchy", color: "#8b5cf6", icon: "🏛️" },
+        { name: "日內瓦 Geneva", coords: [46.2044, 6.1432], day: "D14–D15", desc: "舊城區 · 大噴泉 · 精品購物 · AF1043+AF188 離境", color: "#14b8a6", icon: "⌚" }
+    ];
+
+    const map = L.map('itinerary-map', {
+        scrollWheelZoom: false,
+        attributionControl: false,
+        zoomControl: true
+    }).setView([47.0, 7.5], 7);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors © CARTO'
+    }).addTo(map);
+
+    L.control.attribution({ position: 'bottomright', prefix: '' })
+        .addAttribution('© OpenStreetMap · CARTO')
+        .addTo(map);
+
+    const groundCoords = locations.map(loc => loc.coords);
+    L.polyline(groundCoords, {
+        color: '#B8975D',
+        weight: 3,
+        opacity: 0.6,
+        dashArray: '10, 6'
+    }).addTo(map);
+
+    L.polyline(groundCoords, {
+        color: '#B8975D',
+        weight: 1.5,
+        opacity: 0.3
+    }).addTo(map);
+
+    locations.forEach((loc, index) => {
+        const isWedding = loc.isWedding;
+        const markerColor = isWedding ? '#ec4899' : loc.color;
+        const size = isWedding ? 28 : 22;
+
+        const icon = L.divIcon({
+            className: '',
+            html: `
+                <div style="position: relative; width: ${size + 16}px; height: ${size + 16}px; display: flex; align-items: center; justify-content: center;">
+                    <div style="
+                        width: ${size}px; height: ${size}px;
+                        background: white;
+                        border: 3px solid ${markerColor};
+                        border-radius: 50%;
+                        display: flex; align-items: center; justify-content: center;
+                        font-size: ${isWedding ? 12 : 10}px;
+                        box-shadow: 0 4px 16px ${markerColor}50;
+                        position: relative; z-index: 10;
+                        cursor: pointer;
+                    " onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                        ${loc.icon}
+                    </div>
+                </div>
+            `,
+            iconSize: [size + 16, size + 36],
+            iconAnchor: [(size + 16) / 2, (size + 16) / 2]
+        });
+
+        const marker = L.marker(loc.coords, { icon }).addTo(map);
+
+        const weddingTag = isWedding ? `<div style="background: #fce7f3; color: #be185d; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px; display: inline-block; margin-top: 6px;">💍 婚攝地點</div>` : '';
+
+        marker.bindPopup(`
+            <div style="min-width: 200px; font-family: 'Noto Sans TC', sans-serif; padding: 0; overflow: hidden;">
+                <div style="background: ${markerColor}15; border-bottom: 3px solid ${markerColor}; padding: 12px 14px;">
+                    <div style="font-size: 11px; font-weight: 700; color: ${markerColor}; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">${loc.day}</div>
+                    <div style="font-size: 16px; font-weight: 700; color: #0f172a; line-height: 1.3;">${loc.icon} ${loc.name}</div>
+                    ${weddingTag}
+                </div>
+                <div style="padding: 10px 14px;">
+                    <div style="font-size: 12px; color: #64748b; line-height: 1.6;">${loc.desc}</div>
+                </div>
+            </div>
+        `, { maxWidth: 260 });
+    });
+
+    map.fitBounds(L.latLngBounds(groundCoords), { padding: [50, 50] });
+}
+
+function initAltitudeChart() {
+    const ctx = document.getElementById('altitudeChart').getContext('2d');
+    const labels = Object.keys(itineraryData).map(d => `D${d}`);
+    const dataPoints = Object.values(itineraryData).map(d => d.altitude);
+    const isWedding = Object.values(itineraryData).map(d => d.isWedding || false);
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, 280);
+    gradient.addColorStop(0, 'rgba(184, 151, 93, 0.35)');
+    gradient.addColorStop(0.6, 'rgba(184, 151, 93, 0.08)');
+    gradient.addColorStop(1, 'rgba(184, 151, 93, 0)');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '海拔高度 (m)',
+                data: dataPoints,
+                borderColor: '#B8975D',
+                backgroundColor: gradient,
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.45,
+                pointBackgroundColor: dataPoints.map((_, i) => isWedding[i] ? '#ec4899' : '#ffffff'),
+                pointBorderColor: dataPoints.map((_, i) => isWedding[i] ? '#ec4899' : '#B8975D'),
+                pointBorderWidth: dataPoints.map((_, i) => isWedding[i] ? 3 : 2),
+                pointRadius: dataPoints.map((_, i) => isWedding[i] ? 7 : 4),
+                pointHoverRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.92)',
+                    titleColor: '#f59e0b',
+                    bodyColor: '#e2e8f0',
+                    padding: 12,
+                    cornerRadius: 10
+                }
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { color: '#94a3b8', font: { size: 11 } },
+                    border: { display: false }
+                },
+                y: {
+                    grid: { color: 'rgba(184, 151, 93, 0.06)', drawBorder: false },
+                    ticks: {
+                        color: '#94a3b8',
+                        font: { size: 11 },
+                        callback: (val) => val >= 1000 ? `${(val/1000).toFixed(1)}k` : val
+                    },
+                    beginAtZero: false,
+                    border: { display: false }
+                }
+            }
+        }
+    });
+}
+
+// ==================== INIT ====================
+window.addEventListener('load', () => {
+    const btnContainer = document.getElementById('day-buttons');
+    for (let i = 1; i <= 15; i++) {
+        const btn = document.createElement('button');
+        btn.id = `btn-day-${i}`;
+        const isWedding = i === 2 || i === 7;
+        btn.className = `day-btn flex-shrink-0 w-11 h-11 rounded-full border flex items-center justify-center font-bold transition-all text-xs bg-white ${isWedding ? 'wedding-day border-pink-300 text-pink-600' : 'border-stone-200 text-stone-600'}`;
+        btn.textContent = `D${i}`;
+        btn.title = isWedding ? `Day ${i} - 婚攝日` : `Day ${i}`;
+        btn.onclick = () => renderDay(i);
+        btnContainer.appendChild(btn);
+    }
+
+    renderDay(1);
+    renderHotelTable();
+    initAltitudeChart();
+    initRouteMap();
+});
+</script>
+
+<!-- Load external expenses data -->
+<script src="expenses.js"></script>
+
+<!-- Budget calculation and rendering script -->
+<script>
+function renderBudgetSection() {
+    if (typeof honeymoonExpenses === 'undefined') {
+        console.error('expenses.js not loaded');
+        return;
+    }
+
+    const container = document.getElementById('budget-container');
+    const categorySummary = document.getElementById('category-summary');
+    const totalBudgetEl = document.getElementById('total-budget');
+    
+    if (!container || !categorySummary) return;
+
+    let totalBudget = 0;
+    const categoryTotals = [];
+    const chartData = { labels: [], data: [], colors: [] };
+
+    // Render each category
+    honeymoonExpenses.categories.forEach(category => {
+        let categoryTotal = 0;
+        const itemsHTML = category.items.map(item => {
+            categoryTotal += item.amount;
+            return `
+                <div class="flex justify-between items-start py-2 px-3 hover:bg-stone-50 rounded transition">
+                    <div class="flex-1">
+                        <div class="text-sm font-semibold text-slate-900">${item.name}</div>
+                        <div class="text-xs text-stone-400 italic">${item.note}</div>
+                    </div>
+                    <div class="text-right ml-4 flex-shrink-0">
+                        <div class="text-sm font-bold text-slate-900">HKD ${item.amount.toLocaleString()}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        totalBudget += categoryTotal;
+        categoryTotals.push({ name: category.name, total: categoryTotal, color: category.color });
+        chartData.labels.push(category.name.split(' ')[0]);
+        chartData.data.push(categoryTotal);
+        chartData.colors.push(category.color);
+
+        const categoryHTML = `
+            <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-stone-50 to-stone-100 px-6 py-4 border-b border-stone-200 flex items-center gap-3">
+                    <span class="text-2xl">${category.icon}</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-900">${category.name}</h4>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-stone-500 uppercase tracking-widest">小計</div>
+                        <div class="text-lg font-bold" style="color: ${category.color};">HKD ${categoryTotal.toLocaleString()}</div>
+                    </div>
+                </div>
+                <div class="p-4 space-y-1">
+                    ${itemsHTML}
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', categoryHTML);
+    });
+
+    // Render category summary
+    categoryTotals.forEach(cat => {
+        const percentage = ((cat.total / totalBudget) * 100).toFixed(1);
+        const summaryHTML = `
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 flex-1">
+                    <div class="w-3 h-3 rounded-full" style="background-color: ${cat.color};"></div>
+                    <span class="text-sm text-slate-700">${cat.name}</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-stone-400 mr-2">HKD ${cat.total.toLocaleString()}</span>
+                    <span class="text-xs font-bold text-slate-900 bg-stone-100 px-2 py-1 rounded">${percentage}%</span>
+                </div>
+            </div>
+        `;
+        categorySummary.insertAdjacentHTML('beforeend', summaryHTML);
+    });
+
+    // Update total
+    totalBudgetEl.textContent = `HKD ${totalBudget.toLocaleString()}`;
+
+    // Render pie chart
+    renderExpenseChart(chartData);
+}
+
+function renderExpenseChart(chartData) {
+    const ctx = document.getElementById('expenseChart');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: chartData.labels,
+            datasets: [{
+                data: chartData.data,
+                backgroundColor: chartData.colors,
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { size: 10, family: "\'Noto Sans TC\', sans-serif" },
+                        color: '#64748b',
+                        padding: 12,
+                        usePointStyle: true
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.92)',
+                    titleColor: '#f59e0b',
+                    bodyColor: '#e2e8f0',
+                    padding: 12,
+                    cornerRadius: 10,
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            return `HKD ${value.toLocaleString()} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Initialize budget section when page loads
+window.addEventListener('load', () => {
+    renderBudgetSection();
+});
+</script>
+
+</body>
+</html>
