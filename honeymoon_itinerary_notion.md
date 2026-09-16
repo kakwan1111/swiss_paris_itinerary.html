@@ -212,18 +212,18 @@
 **美食亮點：** Glacier 3000 高山午餐與 Aigle 葡萄園晚餐 — 午餐安排於高山或 Les Diablerets，晚餐返回 Aigle 享用 Chablais 沃州菜及葡萄酒。
 
 ### D14｜10/2 (五)｜Aigle ➔ 西庸城堡 ➔ Lausanne
-**主題：** 上午參觀西庸城堡 ➔ Royal Savoy Hotel & Spa
+**主題：** 行李寄存後參觀西庸城堡 ➔ Royal Savoy Hotel & Spa
 **海拔／預計溫度：** 372 m　／　13°C
 
 | 時段 | 安排 |
 |---|---|
-| 上午 | 早上由 Aigle 出發前往 Montreux／Veytaux-Chillon，參觀 Château de Chillon 西庸城堡，欣賞萊芒湖畔歷史建築與湖景。 |
-| 下午 | 參觀完西庸城堡後前往洛桑，入住 Royal Savoy Hotel & Spa；下午於酒店、Ouchy 湖畔或洛桑老城安排輕鬆散步。 |
+| 上午 | 08:00–08:30 於 Aigle 酒店退房，先請酒店保管大件行李，只攜小型日用袋前往 Veytaux-Chillon；搭乘 S5 至 Veytaux-Chillon，車站步行約 6 分鐘抵達西庸城堡。建議 09:30–10:00 入場，參觀約 1.5–2 小時。 |
+| 下午 | 參觀後先返回 Aigle 酒店取回大件行李，再搭火車前往 Lausanne；抵達後把行李交給 Royal Savoy Hotel & Spa 寄存或辦理入住，下午再安排 Ouchy 湖畔／洛桑老城。 |
 | 傍晚 | 於 Royal Savoy Hotel & Spa 或洛桑湖畔享用晚餐，為翌日前往日內瓦機場保留緩衝。 |
 
-**交通與提醒：** D14 由 Aigle 前往西庸城堡後再到 Lausanne；如 D13 Glacier 3000 延誤，可改為 D15 清晨 Lausanne → Veytaux-Chillon → Genève Aéroport 的壓縮備案，須預留至少 2.5–3 小時機場緩衝。
+**交通與提醒：** 這是最穩妥的行李方案，雖然 Aigle ↔ Veytaux-Chillon 會增加約 60–90 分鐘折返，但不依賴西庸城堡有限且部分為無人看管的行李架。西庸城堡小型行李可放有限 lockers，大件物品可放無人看管架；不建議把護照、相機及貴重物品留在架上。如 Aigle 酒店不能保管行李，才考慮把小型行李帶入城堡並現場確認 lockers。D15 仍維持 Lausanne → Genève Aéroport，不能依賴 D15 才處理大件行李。
 
-**住宿：** 🏨 洛桑豪華住宿：Royal Savoy Hotel & Spa
+**住宿：** 🏨 洛桑豪華住宿：Royal Savoy Hotel & Spa（提前確認行李寄存／早到安排）
 **美食亮點：** 洛桑湖畔晚餐 — 以沃州白葡萄酒及湖區料理，舒適收尾。
 
 ### D15｜10/3 (六)｜洛桑 ➔ 日內瓦 Geneva
@@ -253,7 +253,7 @@
 | D10 | Adelboden | The Cambrian Adelboden | Adelboden 山景 · 無邊際泳池 · SPA | 1353 m | 9–11°C |
 | D11–D12 | 策馬特 | Resort La Ginabelle Zermatt | 連住 2 晚 · 五湖短線 · Gornergrat | 1620 m | 4–6°C |
 | D13 | Aigle | Aigle 酒店（待按行李寄存及房況確認） | 葡萄園城鎮 · 連接 Les Diablerets／Glacier 3000 | 415 m | 10–13°C |
-| D14 | 洛桑 | Royal Savoy Hotel & Spa | 城市豪華酒店 · SPA · 接近 Ouchy | 372 m | 12–14°C |
+| D14 | 洛桑 | Royal Savoy Hotel & Spa | 城市豪華酒店 · SPA · 接近 Ouchy · 先確認行李寄存 | 372 m | 12–14°C |
 | D15 | 日內瓦 | Hôtel Longemalle Geneva（待確認） | 日內瓦湖畔 · 離境日 | 375 m | 12–14°C |
 
 ## 蜜月預算概覽
