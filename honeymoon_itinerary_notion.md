@@ -167,19 +167,19 @@
 **美食亮點：** Adelboden 山景晚餐 — 在山谷酒店享用輕鬆晚餐，讓瑞士高山段保持舒適節奏。
 
 ### D11｜9/29 (二)｜Adelboden ➔ 策馬特 Zermatt
-**主題：** 由 Adelboden 前往策馬特與馬特洪峰小鎮
+**主題：** 前往策馬特 ➔ 五湖輕鬆健行
 **海拔／預計溫度：** 1620 m　／　5°C
 
 | 時段 | 安排 |
 |---|---|
-| 上午 | 早餐後由 Adelboden 出發，經 Frutigen、Visp 轉乘列車前往策馬特；今天以長途轉移及順利入住為主。 |
-| 下午 | 抵達後入住 Resort La Ginabelle，於策馬特村內散步、參觀馬特洪峰博物館及教堂，熟悉無煙小鎮環境。 |
-| 傍晚 | 於飯店 SPA 或恆溫泳池放鬆，晚上享用高山晚餐，為翌日 Gornergrat 作準備。 |
+| 上午 | 早餐後由 Adelboden 出發，經 Frutigen、Visp 轉乘列車前往策馬特；抵達後先辦理 Resort La Ginabelle 入住或寄存行李，午餐後再開始山地行程。 |
+| 下午 | 輕鬆健行路線（約 3 小時）：搭乘纜車至 Blauherd，前往施德利湖 Stellisee（湖1）→ 格林蒂湖 Grindjisee（湖2）→ 沿途遠眺格朗湖 Grünsee（湖3）並返回／抵達 Blauherd 纜車站 → 搭纜車到蘇內加 Sunnegga → 萊湖 Leisee（湖5）→ 遠眺摩吉湖 Moosjisee（湖4，不下行）→ 搭乘地下纜車回策馬特。全程以短線、觀景及拍照為主，不安排完整五湖環線。 |
+| 傍晚 | 返回 Resort La Ginabelle，於策馬特村內享用晚餐及 SPA；如抵達延誤或天氣不穩，取消健行，只保留 Sunnegga 觀景台短停。 |
 
-**交通與提醒：** D10 Adelboden → D11 Zermatt；Adelboden → Frutigen → Visp → Zermatt 是長距離移動，不建議抵達後再安排額外高山景點。
+**交通與提醒：** Adelboden → Frutigen → Visp → Zermatt 約需 2.5–3 小時，建議 07:30–08:00 出發，爭取 11:00 前抵達策馬特；五湖路線受纜車及天氣影響，出發前確認 Blauherd／Sunnegga 營運，並穿著防滑鞋。
 
-**住宿：** 🏨 續住第 1 晚：Resort La Ginabelle Zermatt
-**美食亮點：** 策馬特高山晚餐 — 以 Fondue 或瑞士高山料理迎接策馬特段。
+**住宿：** 🏨 第 1 晚：Resort La Ginabelle Zermatt
+**美食亮點：** 策馬特高山午餐與晚餐 — 午餐後以五湖短線觀景為主，晚上回到策馬特享用 Fondue 或高山料理。
 
 ### D12｜9/30 (三)｜策馬特 Zermatt
 **主題：** 葛納葛特景觀鐵路 ➔ 利菲爾湖倒影
@@ -196,32 +196,32 @@
 **住宿：** 🏨 續住第 2 晚：Resort La Ginabelle Zermatt
 **美食亮點：** 策馬特起司火鍋 Fondue — 在馬特洪峰腳下品嚐經典瑞士風味。
 
-### D13｜10/1 (木)｜策馬特 ➔ Les Diablerets ➔ Glacier 3000 ➔ Lausanne
-**主題：** Glacier 3000 高山日 ➔ 洛桑
+### D13｜10/1 (木)｜策馬特 ➔ Aigle ➔ Les Diablerets ➔ Glacier 3000
+**主題：** Glacier 3000 高山日 ➔ 入住 Aigle
 **海拔／預計溫度：** 3000 m　／　4°C
 
 | 時段 | 安排 |
 |---|---|
-| 上午 | 清晨由策馬特出發，經 Visp、Montreux／Aigle 前往 Les Diablerets，再轉乘巴士至 Col du Pillon；搭乘纜車登上 Glacier 3000（約 3,000m），體驗 Peak Walk by Tissot、Glacier Walk 及冰川景觀。 |
-| 下午 | 下午離開 Col du Pillon，前往 Lausanne 辦理入住及休息。五湖步道不再列為必做；如仍想保留策馬特湖景，只安排 Sunnegga 近站短線觀景。 |
-| 傍晚 | 入住 Lausanne 後於酒店及 Ouchy 湖畔輕鬆晚餐，提早休息，為 D14 上午西庸城堡保留體力。 |
+| 上午 | 建議 07:00–07:30 由策馬特出發，經 Visp 前往 Aigle；先把行李寄存於 Aigle 酒店，再由 Aigle／Aigle-Diablerets 線前往 Les Diablerets，轉乘 180 號巴士至 Col du Pillon。建議約 11:30–12:00 抵達纜車站，搭乘纜車登上 Glacier 3000。 |
+| 下午 | 於 Glacier 3000 體驗 Peak Walk by Tissot、Glacier Walk 及冰川景觀，建議留 2.5–3 小時；下午返回 Les Diablerets，再回 Aigle 辦理入住及休息。 |
+| 傍晚 | 入住 Aigle 當晚，推薦於 Aigle 城堡及舊城區短途散步，或在 Aigle 周邊葡萄園景觀餐廳用餐；不再安排西庸城堡，將其保留在 D14 首選或 D15 機場轉移備案。 |
 
-**交通與提醒：** D13 是本段最長交通日，建議預留約 5–6 小時點對點轉移，並先確認 SBB 接駁與 Glacier 3000 纜車營運。官方 2026 夏季營運至 10/19，成人往返纜車票 CHF 89；持 Swiss Half Fare Card／Swiss Travel Pass 的合資格票價為 CHF 45，實際以官方售票頁面及當日規則為準。
+**交通與提醒：** D13 建議不要晚於 07:30 離開策馬特。Zermatt → Aigle 約 2.5–3 小時，Aigle → Les Diablerets 再接 180 號巴士至 Col du Pillon；整體為長途轉移，應預留 60–90 分鐘接駁緩衝。Glacier 3000 官方纜車每日約 09:00–16:50 運行，實際受天氣影響；成人往返 CHF 89，合資格 Half Fare／Swiss Travel Pass 票價 CHF 45，出發前再次確認 2026 班次。
 
-**住宿：** 🏨 洛桑過渡住宿：Royal Savoy Hotel & Spa（提前入住／行李寄存安排待確認）
-**美食亮點：** Glacier 3000 高山午餐與洛桑晚餐 — 中午在高山景觀餐廳簡單用餐，晚上回到洛桑以湖畔晚餐收尾。
+**住宿：** 🏨 Aigle 住宿：建議入住 Hôtel du Nord Aigle、Aigle 現代市中心酒店或同區高評分葡萄園酒店（以可寄存行李及早入住安排為優先）
+**美食亮點：** Glacier 3000 高山午餐與 Aigle 葡萄園晚餐 — 午餐安排於高山或 Les Diablerets，晚餐返回 Aigle 享用 Chablais 沃州菜及葡萄酒。
 
-### D14｜10/2 (五)｜策馬特 ➔ 西庸城堡 ➔ Lausanne
+### D14｜10/2 (五)｜Aigle ➔ 西庸城堡 ➔ Lausanne
 **主題：** 上午參觀西庸城堡 ➔ Royal Savoy Hotel & Spa
 **海拔／預計溫度：** 372 m　／　13°C
 
 | 時段 | 安排 |
 |---|---|
-| 上午 | 早上由策馬特出發前往 Montreux／Veytaux-Chillon，參觀 Château de Chillon 西庸城堡，欣賞萊芒湖畔歷史建築與湖景。 |
+| 上午 | 早上由 Aigle 出發前往 Montreux／Veytaux-Chillon，參觀 Château de Chillon 西庸城堡，欣賞萊芒湖畔歷史建築與湖景。 |
 | 下午 | 參觀完西庸城堡後前往洛桑，入住 Royal Savoy Hotel & Spa；下午於酒店、Ouchy 湖畔或洛桑老城安排輕鬆散步。 |
 | 傍晚 | 於 Royal Savoy Hotel & Spa 或洛桑湖畔享用晚餐，為翌日前往日內瓦機場保留緩衝。 |
 
-**交通與提醒：** D14 以西庸城堡上午參觀為首選；如 D13 Glacier 3000 延誤，可改為 D15 清晨 Lausanne → Veytaux-Chillon → Genève Aéroport 的壓縮備案，須預留至少 2.5–3 小時機場緩衝。
+**交通與提醒：** D14 由 Aigle 前往西庸城堡後再到 Lausanne；如 D13 Glacier 3000 延誤，可改為 D15 清晨 Lausanne → Veytaux-Chillon → Genève Aéroport 的壓縮備案，須預留至少 2.5–3 小時機場緩衝。
 
 **住宿：** 🏨 洛桑豪華住宿：Royal Savoy Hotel & Spa
 **美食亮點：** 洛桑湖畔晚餐 — 以沃州白葡萄酒及湖區料理，舒適收尾。
@@ -251,7 +251,8 @@
 | D6–D7 | Wilderswil / Interlaken | Airbnb Chalet Allmihus - Apt. A (Ski/Train) | 連住 2 晚 · D7 婚攝基地 | 1034 m | 8–10°C |
 | D8–D9 | 伯恩高地（座標待確認） | Airbnb 房源 #45421438 | 連住 2 晚 · 約 30m² studio · 最多 3位成人 | 1000 m | 8–10°C |
 | D10 | Adelboden | The Cambrian Adelboden | Adelboden 山景 · 無邊際泳池 · SPA | 1353 m | 9–11°C |
-| D11–D13 | 策馬特 | Resort La Ginabelle Zermatt | 連住 3 晚 · Gornergrat · Glacier 3000 · Sunnegga 短線備選 | 1620 m | 4–6°C |
+| D11–D12 | 策馬特 | Resort La Ginabelle Zermatt | 連住 2 晚 · 五湖短線 · Gornergrat | 1620 m | 4–6°C |
+| D13 | Aigle | Aigle 酒店（待按行李寄存及房況確認） | 葡萄園城鎮 · 連接 Les Diablerets／Glacier 3000 | 415 m | 10–13°C |
 | D14 | 洛桑 | Royal Savoy Hotel & Spa | 城市豪華酒店 · SPA · 接近 Ouchy | 372 m | 12–14°C |
 | D15 | 日內瓦 | Hôtel Longemalle Geneva（待確認） | 日內瓦湖畔 · 離境日 | 375 m | 12–14°C |
 
@@ -302,10 +303,10 @@
 | D10 Adelboden 村落／The Cambrian SPA | 900 | 2人 Adelboden 村落、山景及酒店休閒活動估算 |
 | D11 Adelboden → 策馬特轉移及村內活動 | 500 | 由 Adelboden 轉往策馬特後的村內活動預算 |
 | D12 Gornergrat 登山火車 | 1,100 | 2人往返估算；Half Fare Card／Swiss Travel Pass 按營運公司規則享折扣 |
-| D13 Glacier 3000（Col du Pillon）＋洛桑轉移 | 1,780 | Glacier 3000 官方成人往返票 CHF 89；持 Swiss Half Fare Card／Swiss Travel Pass 的合資格票價 CHF 45／人，另加 Les Diablerets／Col du Pillon 巴士及區域交通估算；Sunnegga 五湖步道改為短線備選 |
+| D11 五湖短線＋D13 Glacier 3000（Aigle 住宿基地） | 2,100 | D11 Blauherd／Sunnegga 五湖短線纜車及交通；D13 Glacier 3000 官方成人往返票 CHF 89，合資格票價 CHF 45／人，另加 Zermatt → Aigle → Les Diablerets／Col du Pillon 區域交通估算 |
 | D14 西庸城堡入場＋洛桑烏希碼頭 | 900 | 2人城堡入場、Montreux／Veytaux-Chillon 及 Lausanne 湖畔活動預算；城堡門票另購 |
 | 其他活動 (塞納河遊船等) | 2,200 | 含部分 STP 覆蓋及付費項目 |
-| **小計** | **12,930** |  |
+| **小計** | **13,250** |  |
 
 ### 餐飲與米其林體驗 (Dining)
 
@@ -323,7 +324,7 @@
 | 市內交通、小費與雜費 | 5,000 | 含 STP 未覆蓋之市區巴士/地鐵 |
 | **小計** | **23,000** |  |
 
-### 預算總額：HKD 202,330
+### 預算總額：HKD 202,650
 
 ## 瑞士交通安排
 
@@ -334,7 +335,7 @@
 | D7–D9 | Wilderswil／Grindelwald／First／Lauterbrunnen／Mürren／Iseltwald／Harder Kulm | 區域鐵路、巴士、纜車及船班按季節確認 |
 | D10 | Wilderswil → Interlaken → Spiez → Adelboden | 區域鐵路及巴士；入住 The Cambrian Adelboden |
 | D11 | Adelboden → Luzern／Visp → Zermatt | 長距離轉移日，抵達後只作小鎮散步 |
-| D12–D13 | Gornergrat／Glacier 3000／Sunnegga 短線備選 | 兩天完成策馬特核心山地行程 |
+| D12–D13 | Gornergrat／D11 五湖短線／D13 Glacier 3000（Aigle） | 兩天完成策馬特核心山地行程 |
 | D14 | Zermatt → Montreux／Veytaux-Chillon → Lausanne | 上午參觀西庸城堡，下午入住 Royal Savoy |
 | D15 | Lausanne → Geneva Airport | SBB 列車前往 GVA，預留退稅及登機時間 |
 
@@ -359,7 +360,7 @@
 | 項目 | 文件中的安排 |
 |---|---|
 | 一般火車、巴士、船 | Half Fare Card 以半價購票；Swiss Travel Pass 則在有效日無限搭乘 |
-| First、Pilatus、Gornergrat、Glacier 3000、Sunnegga 短線備選、Adelboden | 按營運公司及票證規則享有半價或個別折扣，不能一概視為免費 |
+| First、Pilatus、D11 五湖短線、Gornergrat、D13 Glacier 3000、Adelboden | 按營運公司及票證規則享有半價或個別折扣，不能一概視為免費 |
 | D14 西庸城堡 | 城堡門票另購；交通按 Montreux／Veytaux-Chillon 路線處理 |
 
 ## 官方參考來源

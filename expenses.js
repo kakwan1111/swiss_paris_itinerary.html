@@ -81,7 +81,7 @@ const honeymoonExpenses = {
                 { name: "D10 Adelboden 村落／The Cambrian SPA", amount: 900, note: "2人 Adelboden 村落、山景及酒店休閒活動估算" },
                 { name: "D11 Adelboden → 策馬特轉移及村內活動", amount: 500, note: "由 Adelboden 轉往策馬特後的村內活動預算" },
                 { name: "D12 Gornergrat 登山火車", amount: 1100, note: "2人往返估算；Half Fare Card／Swiss Travel Pass 按營運公司規則享折扣" },
-                { name: "D13 Glacier 3000（Col du Pillon）＋洛桑轉移", amount: 1780, note: "Glacier 3000 官方成人往返票 CHF 89；持 Swiss Half Fare Card／Swiss Travel Pass 的合資格票價 CHF 45／人，另加 Les Diablerets／Col du Pillon 巴士及區域交通估算；Sunnegga 五湖步道改為短線備選" },
+                { name: "D11 五湖短線＋D13 Glacier 3000（Aigle 住宿基地）", amount: 2100, note: "D11 Blauherd／Sunnegga 五湖短線纜車及交通；D13 Glacier 3000 官方成人往返票 CHF 89，合資格票價 CHF 45／人，另加 Zermatt → Aigle → Les Diablerets／Col du Pillon 區域交通估算" },
                 { name: "D14 西庸城堡入場＋洛桑烏希碼頭", amount: 900, note: "2人城堡入場、Montreux／Veytaux-Chillon 及 Lausanne 湖畔活動預算；城堡門票另購" },
                 { name: "其他活動 (塞納河遊船等)", amount: 2200, note: "含部分 STP 覆蓋及付費項目" }
             ]
