@@ -3,13 +3,31 @@
  * KWAN & ELLA HONEYMOON EXPENSES CONFIGURATION FILE
  * =========================================================================
  * 精確預算配置文件（幣種：HKD）。
- * 您可以隨時在此檔案中修改各項費用，儲存後重新整理網頁即可自動更新！
+ * 數據已根據 2026 年瑞士交通最新票價與 Swiss Travel Pass (STP) 效益進行審核。
  */
 
 const honeymoonExpenses = {
     currency: "HKD",
-    exchangeRateCHF: 8.8, // 1 CHF 約等於 8.8 HKD
-    exchangeRateEUR: 8.5, // 1 EUR 約等於 8.5 HKD
+    exchangeRateCHF: 9.0, // 考慮 2026 匯率波動預留，1 CHF ≈ 9.0 HKD
+    exchangeRateEUR: 8.5, // 1 EUR ≈ 8.5 HKD
+    transportComparison: {
+        travelers: 2,
+        exchangeRateCHF: 9.0,
+        estimatedOrdinarySwissTransportFullHKD: 8100,
+        halfFareCard: { passHKD: 2700, ordinaryTransportHKD: 4050, totalHKD: 6750 },
+        swissTravelPass15Day: { passHKD: 8982, ordinaryTransportHKD: 0, totalHKD: 8982 },
+        differenceHKD: 2232,
+        note: "只比較通行證及一般火車／巴士／船；山地活動、西庸城堡及座位預約另列，避免重複計算。"
+    },
+    passRecommendation: {
+        recommended: "Swiss Half Fare Card",
+        recommendedCostForTwoHKD: 2700,
+        recommendedNote: "CHF 150/人；有效一個月，瑞士一般火車、巴士、船及大部分山地鐵路以半價購票。",
+        alternative: "Swiss Travel Pass 15天二等座",
+        alternativeCostForTwoHKD: 9000,
+        alternativeNote: "CHF 499/人；連續15日一般公共交通無限搭乘，Rigi／Stanserhorn／Stoos包含，其他山地項目最高約50%折扣。",
+        reason: "本路線沒有 Rigi，且大量山地景點兩種方案均需另按規則購票；Half Fare Card 預計較省，但每段要另買票。"
+    },
     
     categories: [
         {
@@ -18,8 +36,8 @@ const honeymoonExpenses = {
             icon: "✈️",
             color: "#6366f1",
             items: [
-                { name: "法國航空香港往返巴黎/日內瓦 (長途+歐陸航段)", amount: 28500, note: "2人特選經濟/經濟艙連稅估算" },
-                { name: "瑞士交通通行證 Swiss Travel Pass (15天二等座)", amount: 10800, note: "2人同行·含全境無限次火車、巴士、船及登山優惠" }
+                { name: "法國航空香港往返巴黎/日內瓦", amount: 28500, note: "2人特選經濟/經濟艙連稅估算" },
+                { name: "Swiss Half Fare Card（推薦，2人）", amount: 2700, note: "CHF 150/人；有效一個月，瑞士一般火車、巴士、船及大部分山地鐵路以半價購票。Swiss Travel Pass 15天二等座替代方案約 HKD 8,982/2人（CHF 499/人 × 2 × HKD 9），未計入本總額。" }
             ]
         },
         {
@@ -28,15 +46,15 @@ const honeymoonExpenses = {
             icon: "🏨",
             color: "#B8975D",
             items: [
-                { name: "D1-D3 巴黎：Villa Alessandra Hotel (3晚)", amount: 9800, note: "凱旋門附近優選精品房含早" },
-                { name: "D4 蘇黎世：Storchen Zürich (1晚)", amount: 5500, note: "利馬特河畔豪華景觀房" },
-                { name: "D5 琉森瑞吉山：Rigi Kaltbad (1晚)", amount: 6200, note: "含山頂無邊際溫泉及早晚餐" },
-                { name: "D6-D7 格林德瓦：Hotel Spinne (2晚)", amount: 11000, note: "艾格峰景觀設計房含早" },
-                { name: "D8 藍湖：Blausee Alpine Lodge (1晚)", amount: 4800, note: "水晶藍湖畔特色湖景房" },
-                { name: "D9 因特拉肯：Private Pool Room (1晚)", amount: 3500, note: "私人泳池特色浪漫民宿" },
-                { name: "D10-D12 策馬特：Resort La Ginabelle (3晚)", amount: 16500, note: "五星頂級水療度假村·馬特洪峰景" },
-                { name: "D13 洛桑：Château d'Ouchy (1晚)", amount: 5800, note: "萊芒湖畔歷史城堡飯店" },
-                { name: "D14-D15 日內瓦：Hôtel Longemalle (2晚)", amount: 9200, note: "市中心五星級精品房" }
+                { name: "D1-D3 巴黎：Quinzerie Hotel (3晚)", amount: 9800, note: "巴黎住宿預算；實際房價按入住日確認" },
+                { name: "D4 蘇黎世：Crowne Plaza Zurich by IHG (1晚)", amount: 5500, note: "蘇黎世住宿預算；實際房價按入住日確認" },
+                { name: "D5 琉森：Holiday Inn Express Luzern - Kriens by IHG (1晚)", amount: 3600, note: "Kriens 住宿預算；實際房價按入住日確認" },
+                { name: "D6-D7 Wilderswil：Airbnb Chalet Allmihus - Apt. A (2晚)", amount: 7200, note: "按您提供的 Airbnb 房源；請以 2026/9/24–9/26、2位旅客重新查價" },
+                { name: "D8-D9 Airbnb 房源 #45421438 (2晚)", amount: 9000, note: "用戶提供 2026/9/28–10/3 連結；房源名稱、位置及 2位旅客實際價格待確認" },
+                { name: "D10 Adelboden：The Cambrian Adelboden (1晚)", amount: 7200, note: "Adelboden 山景酒店及 SPA 預算；實際房價按入住日確認" },
+                { name: "D11-D13 策馬特：Resort La Ginabelle (3晚)", amount: 16500, note: "連住 3 晚；五星頂級水療度假村預算，實際房價按入住日確認" },
+                { name: "D14 洛桑：Royal Savoy Hotel & Spa (1晚)", amount: 6800, note: "豪華酒店及 SPA 預算；實際房價按入住日確認" },
+                { name: "D15 日內瓦：Hôtel Longemalle (日間／1晚待確認)", amount: 4600, note: "離境日可作行李寄存或短暫休息；是否留宿待確認" }
             ]
         },
         {
@@ -45,9 +63,9 @@ const honeymoonExpenses = {
             icon: "💍",
             color: "#ec4899",
             items: [
-                { name: "巴黎海外婚紗攝影團隊 (D2)", amount: 22000, note: "含專業攝影師、造型師、全日跟拍" },
-                { name: "格林德瓦高山婚紗拍攝 (D7)", amount: 24000, note: "含艾格峰/夢幻山坡雪山外景跟拍" },
-                { name: "婚紗西裝租借、運送與防皺保養", amount: 6000, note: "國際婚紗運送及防皺護理" }
+                { name: "巴黎海外婚紗攝影團隊 (D2)", amount: 22000, note: "含攝影師、造型師、全日跟拍" },
+                { name: "格林德瓦高山婚紗拍攝 (D7)", amount: 24000, note: "含艾格峰/夢幻山坡雪山外景" },
+                { name: "婚紗西裝租借、運送與防皺保養", amount: 6000, note: "國際運送及專業護理" }
             ]
         },
         {
@@ -56,9 +74,16 @@ const honeymoonExpenses = {
             icon: "⛰️",
             color: "#10b981",
             items: [
-                { name: "少女峰登頂套票 (Jungfraujoch)", amount: 5200, note: "2人同行·含冰宮與觀景台 (Pass 5折優惠)" },
-                { name: "Gornergrat & 冰川天堂纜車票", amount: 5800, note: "3,883m 冰川天堂及觀景台 (Pass 5折優惠)" },
-                { name: "塞納河遊船晚餐 & 哈德昆觀景台", amount: 3200, note: "浪漫餐飲與觀光纜車往返" }
+                { name: "D5 瑞士蓮巧克力之家 Lindt Home", amount: 550, note: "2人入場體驗 (STP 無折扣)" },
+                { name: "D6 皮拉圖斯峰 Pilatus", amount: 2200, note: "2人往返交通及登山票估算；Swiss Half Fare Card／Swiss Travel Pass 效益按所選路線與票種確認" },
+                { name: "D8 First + 勞特布龍嫩／米倫一日交通", amount: 1800, note: "2人纜車、區域鐵路及山地接駁估算；Half Fare Card／Swiss Travel Pass 折扣依實際路線確認" },
+                { name: "D9 伊瑟爾特瓦爾德與哈德昆交通", amount: 1000, note: "2人布里恩茨湖區交通及觀景台接駁估算；Swiss Travel Pass 覆蓋／折扣依路線確認" },
+                { name: "D10 Adelboden 村落／The Cambrian SPA", amount: 900, note: "2人 Adelboden 村落、山景及酒店休閒活動估算" },
+                { name: "D11 Adelboden → 策馬特轉移及村內活動", amount: 500, note: "由 Adelboden 轉往策馬特後的村內活動預算" },
+                { name: "D12 Gornergrat 登山火車", amount: 1100, note: "2人往返估算；Half Fare Card／Swiss Travel Pass 按營運公司規則享折扣" },
+                { name: "D13 Glacier 3000（Col du Pillon）＋洛桑轉移", amount: 1780, note: "Glacier 3000 官方成人往返票 CHF 89；持 Swiss Half Fare Card／Swiss Travel Pass 的合資格票價 CHF 45／人，另加 Les Diablerets／Col du Pillon 巴士及區域交通估算；Sunnegga 五湖步道改為短線備選" },
+                { name: "D14 西庸城堡入場＋洛桑烏希碼頭", amount: 900, note: "2人城堡入場、Montreux／Veytaux-Chillon 及 Lausanne 湖畔活動預算；城堡門票另購" },
+                { name: "其他活動 (塞納河遊船等)", amount: 2200, note: "含部分 STP 覆蓋及付費項目" }
             ]
         },
         {
@@ -68,7 +93,7 @@ const honeymoonExpenses = {
             color: "#f59e0b",
             items: [
                 { name: "巴黎米其林/法式浪漫晚宴", amount: 5800, note: "精選高檔法式料理·含酒水" },
-                { name: "瑞士起司火鍋、烤起司與高山美饌", amount: 7200, note: "15天日常餐飲·Fondue、Raclette、高山餐廳" }
+                { name: "瑞士特色餐飲與高山美饌", amount: 7200, note: "15天日常餐飲、起司火鍋等" }
             ]
         },
         {
@@ -77,8 +102,8 @@ const honeymoonExpenses = {
             icon: "🛍️",
             color: "#8b5cf6",
             items: [
-                { name: "精品購物與紀念品退稅預算", amount: 18000, note: "巴黎香榭麗舍/日內瓦Rue du Rhône精品購物" },
-                { name: "市內交通、纜車、小費及零散支出", amount: 5000, note: "地鐵、計程車、行李運送及雜費" }
+                { name: "精品購物與紀念品退稅預算", amount: 18000, note: "巴黎/日內瓦名品購物預留" },
+                { name: "市內交通、小費與雜費", amount: 5000, note: "含 STP 未覆蓋之市區巴士/地鐵" }
             ]
         }
     ]
