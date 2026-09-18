@@ -36,7 +36,7 @@ const honeymoonExpenses = {
             icon: "✈️",
             color: "#6366f1",
             items: [
-                { name: "法國航空香港往返巴黎/日內瓦", amount: 28500, note: "2人特選經濟/經濟艙連稅估算" },
+                { name: "法國航空香港往返巴黎/日內瓦", amount: 17000, note: "2人經濟艙連稅估算" },
                 { name: "Swiss Half Fare Card（推薦，2人）", amount: 2700, note: "CHF 150/人；有效一個月，瑞士一般火車、巴士、船及大部分山地鐵路以半價購票。Swiss Travel Pass 15天二等座替代方案約 HKD 8,982/2人（CHF 499/人 × 2 × HKD 9），未計入本總額。" }
             ]
         },
@@ -46,14 +46,14 @@ const honeymoonExpenses = {
             icon: "🏨",
             color: "#B8975D",
             items: [
-                { name: "D1-D3 巴黎：Quinzerie Hotel (3晚)", amount: 9800, note: "巴黎住宿預算；實際房價按入住日確認" },
-                { name: "D4 蘇黎世：Crowne Plaza Zurich by IHG (1晚)", amount: 5500, note: "蘇黎世住宿預算；實際房價按入住日確認" },
-                { name: "D5 琉森：Holiday Inn Express Luzern - Kriens by IHG (1晚)", amount: 3600, note: "Kriens 住宿預算；實際房價按入住日確認" },
-                { name: "D6-D7 Wilderswil：Airbnb Chalet Allmihus - Apt. A (2晚)", amount: 7200, note: "按您提供的 Airbnb 房源；請以 2026/9/24–9/26、2位旅客重新查價" },
-                { name: "D8-D9 Airbnb 房源 #45421438 (2晚)", amount: 9000, note: "用戶提供 2026/9/28–10/3 連結；房源名稱、位置及 2位旅客實際價格待確認" },
-                { name: "D10 Adelboden：The Cambrian Adelboden (1晚)", amount: 7200, note: "Adelboden 山景酒店及 SPA 預算；實際房價按入住日確認" },
-                { name: "D11-D12 策馬特：Jägerhof Hotel & Apartements (2晚)", amount: 9800, note: "連住 2 晚；以 Jägerhof Hotel & Apartements 預算估算，實際房價按入住日確認" },
-                { name: "D14 洛桑：Royal Savoy Hotel & Spa (1晚)", amount: 6800, note: "豪華酒店及 SPA 預算；實際房價按入住日確認" },
+                { name: "D1-D3 巴黎：Quinzerie Hotel (3晚)", amount: 6200 },
+                { name: "D4 蘇黎世：Crowne Plaza Zurich by IHG (1晚)", amount: 1350},
+                { name: "D5 琉森：Holiday Inn Express Luzern - Kriens by IHG (1晚)", amount: 2210},
+                { name: "D6-D7 Wilderswil：Airbnb Chalet Allmihus - Apt. A (2晚)", amount: 5620},
+                { name: "D8-D9 Airbnb 房源 #45421438 (2晚)", amount: 6050 },
+                { name: "D10 Adelboden：The Cambrian Adelboden (1晚)", amount: 3820},
+                { name: "D11-D12 策馬特：Jägerhof Hotel & Apartements (2晚)", amount: 4740 },
+                { name: "D14 洛桑：Royal Savoy Hotel & Spa (1晚)", amount: 2570},
             ]
         },
         {
@@ -64,7 +64,7 @@ const honeymoonExpenses = {
             items: [
                 { name: "巴黎海外婚紗攝影團隊 (D2)", amount: 22000, note: "含攝影師、造型師、全日跟拍" },
                 { name: "格林德瓦高山婚紗拍攝 (D7)", amount: 24000, note: "含艾格峰/夢幻山坡雪山外景" },
-                { name: "婚紗西裝租借、運送與防皺保養", amount: 6000, note: "國際運送及專業護理" }
+                { name: "婚紗西裝租借、運送", amount: 6000, note: "國際運送及專業護理" }
             ]
         },
         {
@@ -91,8 +91,8 @@ const honeymoonExpenses = {
             icon: "🍽️",
             color: "#f59e0b",
             items: [
-                { name: "巴黎米其林/法式浪漫晚宴", amount: 5800, note: "精選高檔法式料理·含酒水" },
-                { name: "瑞士特色餐飲與高山美饌", amount: 7200, note: "15天日常餐飲、起司火鍋等" }
+                { name: "巴黎米其林/法式浪漫晚宴", amount: 3000, note: "精選高檔法式料理·含酒水" },
+                { name: "瑞士特色餐飲與高山美饌", amount: 7000, note: "15天日常餐飲、起司火鍋等" }
             ]
         },
         {
@@ -101,7 +101,7 @@ const honeymoonExpenses = {
             icon: "🛍️",
             color: "#8b5cf6",
             items: [
-                { name: "精品購物與紀念品退稅預算", amount: 18000, note: "巴黎/日內瓦名品購物預留" },
+                { name: "精品購物與紀念品退稅預算", amount: 5000, note: "巴黎/日內瓦名品購物預留" },
                 { name: "市內交通、小費與雜費", amount: 5000, note: "含 STP 未覆蓋之市區巴士/地鐵" }
             ]
         }
