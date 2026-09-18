@@ -172,13 +172,13 @@
 
 | 時段 | 安排 |
 |---|---|
-| 上午 | 早餐後由 Adelboden 出發，經 Frutigen、Visp 轉乘列車前往策馬特；抵達後先辦理 Resort La Ginabelle 入住或寄存行李，午餐後再開始山地行程。 |
+| 上午 | 早餐後由 Adelboden 出發，經 Frutigen、Visp 轉乘列車前往策馬特；抵達後先辦理 Jägerhof Hotel & Apartements 入住或寄存行李，午餐後再開始山地行程。 |
 | 下午 | 輕鬆健行路線（約 3 小時）：搭乘纜車至 Blauherd，前往施德利湖 Stellisee（湖1）→ 格林蒂湖 Grindjisee（湖2）→ 沿途遠眺格朗湖 Grünsee（湖3）並返回／抵達 Blauherd 纜車站 → 搭纜車到蘇內加 Sunnegga → 萊湖 Leisee（湖5）→ 遠眺摩吉湖 Moosjisee（湖4，不下行）→ 搭乘地下纜車回策馬特。全程以短線、觀景及拍照為主，不安排完整五湖環線。 |
-| 傍晚 | 返回 Resort La Ginabelle，於策馬特村內享用晚餐及 SPA；如抵達延誤或天氣不穩，取消健行，只保留 Sunnegga 觀景台短停。 |
+| 傍晚 | 返回 Jägerhof Hotel & Apartements，於策馬特村內享用晚餐及休息；如抵達延誤或天氣不穩，取消健行，只保留 Sunnegga 觀景台短停。 |
 
 **交通與提醒：** Adelboden → Frutigen → Visp → Zermatt 約需 2.5–3 小時，建議 07:30–08:00 出發，爭取 11:00 前抵達策馬特；五湖路線受纜車及天氣影響，出發前確認 Blauherd／Sunnegga 營運，並穿著防滑鞋。
 
-**住宿：** 🏨 第 1 晚：Resort La Ginabelle Zermatt
+**住宿：** 🏨 第 1 晚：Jägerhof Hotel & Apartements, Zermatt
 **美食亮點：** 策馬特高山午餐與晚餐 — 午餐後以五湖短線觀景為主，晚上回到策馬特享用 Fondue 或高山料理。
 
 ### D12｜9/30 (三)｜策馬特 Zermatt
@@ -189,11 +189,11 @@
 |---|---|
 | 上午 | 搭乘 Gornergrat 齒軌鐵路登上展望台，遠眺馬特洪峰與四千米群峰。 |
 | 下午 | 於 Rotenboden 下車，步行前往利菲爾湖拍攝馬特洪峰倒影，按體力選擇短線步道。 |
-| 傍晚 | 返回 Resort La Ginabelle，使用 SPA 及泳池舒緩登山疲勞。 |
+| 傍晚 | 返回 Jägerhof Hotel & Apartements 休息，舒緩登山疲勞。 |
 
 **交通與提醒：** 原 D11 Gornergrat 行程順延至 D12；續住策馬特，不需搬運行李，按雲量調整上下山時間。
 
-**住宿：** 🏨 續住第 2 晚：Resort La Ginabelle Zermatt
+**住宿：** 🏨 續住第 2 晚：Jägerhof Hotel & Apartements, Zermatt
 **美食亮點：** 策馬特起司火鍋 Fondue — 在馬特洪峰腳下品嚐經典瑞士風味。
 
 ### D13｜10/1 (木)｜策馬特 ➔ 五湖輕鬆健行 ➔ Aigle
@@ -238,7 +238,7 @@
 
 **交通與提醒：** 航班資料維持原版本不變：AF1043 (GVA 20:40 ➔ CDG 21:55) + AF188 (CDG 23:30 ➔ HKG 17:40+1)。
 
-**住宿：** ✈️ 日內瓦離境日（Hôtel Longemalle Geneva 可作日間寄存／短暫休息，是否留宿待確認）
+**住宿：** ✈️ 不入住酒店：直接前往日內瓦機場辦理退稅及登機
 **美食亮點：** 日內瓦湖畔最後早餐 — 以法語區早餐及機上法式餐點為旅程作結。
 
 ## 每晚住宿清單
@@ -251,10 +251,9 @@
 | D6–D7 | Wilderswil / Interlaken | Airbnb Chalet Allmihus - Apt. A (Ski/Train) | 連住 2 晚 · D7 婚攝基地 | 1034 m | 8–10°C |
 | D8–D9 | 伯恩高地（座標待確認） | Airbnb 房源 #45421438 | 連住 2 晚 · 約 30m² studio · 最多 3位成人 | 1000 m | 8–10°C |
 | D10 | Adelboden | The Cambrian Adelboden | Adelboden 山景 · 無邊際泳池 · SPA | 1353 m | 9–11°C |
-| D11–D12 | 策馬特 | Resort La Ginabelle Zermatt | 連住 2 晚 · 五湖短線 · Gornergrat | 1620 m | 4–6°C |
+| D11–D12 | 策馬特 | Jägerhof Hotel & Apartements | 連住 2 晚 · 五湖短線 · Gornergrat | 1620 m | 4–6°C |
 | D13 | Aigle | Aigle 酒店（可寄存行李） | D13 晚入住 · D14 Glacier 3000 行李基地 | 415 m | 10–13°C |
 | D14 | 洛桑 | Royal Savoy Hotel & Spa | 城市豪華酒店 · SPA · 接近 Ouchy · 先確認行李寄存 | 372 m | 12–14°C |
-| D15 | 日內瓦 | Hôtel Longemalle Geneva（待確認） | 日內瓦湖畔 · 離境日 | 375 m | 12–14°C |
 
 ## 蜜月預算概覽
 
@@ -278,10 +277,9 @@
 | D6-D7 Wilderswil：Airbnb Chalet Allmihus - Apt. A (2晚) | 7,200 | 按您提供的 Airbnb 房源；請以 2026/9/24–9/26、2位旅客重新查價 |
 | D8-D9 Airbnb 房源 #45421438 (2晚) | 9,000 | 用戶提供 2026/9/28–10/3 連結；房源名稱、位置及 2位旅客實際價格待確認 |
 | D10 Adelboden：The Cambrian Adelboden (1晚) | 7,200 | Adelboden 山景酒店及 SPA 預算；實際房價按入住日確認 |
-| D11-D13 策馬特：Resort La Ginabelle (3晚) | 16,500 | 連住 3 晚；五星頂級水療度假村預算，實際房價按入住日確認 |
+| D11-D12 策馬特：Jägerhof Hotel & Apartements (2晚) | 9,800 | 連住 2 晚；以 Jägerhof Hotel & Apartements 預算估算，實際房價按入住日確認 |
 | D14 洛桑：Royal Savoy Hotel & Spa (1晚) | 6,800 | 豪華酒店及 SPA 預算；實際房價按入住日確認 |
-| D15 日內瓦：Hôtel Longemalle (日間／1晚待確認) | 4,600 | 離境日可作行李寄存或短暫休息；是否留宿待確認 |
-| **小計** | **70,200** |  |
+| **小計** | **58,900** |  |
 
 ### 海外婚紗拍攝 (Wedding Photo)
 
@@ -324,7 +322,7 @@
 | 市內交通、小費與雜費 | 5,000 | 含 STP 未覆蓋之市區巴士/地鐵 |
 | **小計** | **23,000** |  |
 
-### 預算總額：HKD 203,600
+### 預算總額：HKD 192,300
 
 ## 瑞士交通安排
 

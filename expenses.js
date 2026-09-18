@@ -52,9 +52,8 @@ const honeymoonExpenses = {
                 { name: "D6-D7 Wilderswil：Airbnb Chalet Allmihus - Apt. A (2晚)", amount: 7200, note: "按您提供的 Airbnb 房源；請以 2026/9/24–9/26、2位旅客重新查價" },
                 { name: "D8-D9 Airbnb 房源 #45421438 (2晚)", amount: 9000, note: "用戶提供 2026/9/28–10/3 連結；房源名稱、位置及 2位旅客實際價格待確認" },
                 { name: "D10 Adelboden：The Cambrian Adelboden (1晚)", amount: 7200, note: "Adelboden 山景酒店及 SPA 預算；實際房價按入住日確認" },
-                { name: "D11-D13 策馬特：Resort La Ginabelle (3晚)", amount: 16500, note: "連住 3 晚；五星頂級水療度假村預算，實際房價按入住日確認" },
+                { name: "D11-D12 策馬特：Jägerhof Hotel & Apartements (2晚)", amount: 9800, note: "連住 2 晚；以 Jägerhof Hotel & Apartements 預算估算，實際房價按入住日確認" },
                 { name: "D14 洛桑：Royal Savoy Hotel & Spa (1晚)", amount: 6800, note: "豪華酒店及 SPA 預算；實際房價按入住日確認" },
-                { name: "D15 日內瓦：Hôtel Longemalle (日間／1晚待確認)", amount: 4600, note: "離境日可作行李寄存或短暫休息；是否留宿待確認" }
             ]
         },
         {
