@@ -17,7 +17,7 @@
 ## 每日行程
 
 ### D1｜9/19 (六)｜巴黎 Paris
-**主題：** 抵達巴黎 ➔ 凱旋門與左岸漫步
+**主題：** 抵達巴黎 ➔ 凡爾賽宮
 **海拔／預計溫度：** 35 m　／　14°C
 
 | 時段 | 安排 |
@@ -47,7 +47,7 @@
 **美食亮點：** 塞納河畔婚攝慶功晚宴 — 拍攝後享用法式晚宴，為巴黎婚攝大日留下紀念。
 
 ### D3｜9/21 (一)｜巴黎 Paris
-**主題：** 精品購物 ➔ 塞納河景觀晚宴
+**主題：** 凱旋門與香榭麗舍大道 ➔ 塞納河景觀晚宴
 **海拔／預計溫度：** 35 m　／　13°C
 
 | 時段 | 安排 |
@@ -336,22 +336,6 @@
 | D12–D13 | Gornergrat／D11 五湖短線／D13 Glacier 3000（Aigle） | 兩天完成策馬特核心山地行程 |
 | D14 | Zermatt → Montreux／Veytaux-Chillon → Lausanne | 上午參觀西庸城堡，下午入住 Royal Savoy |
 | D15 | Lausanne → Geneva Airport | SBB 列車前往 GVA，預留退稅及登機時間 |
-
-## Swiss Travel Pass 與 Swiss Half Fare Card 比較
-
-| 方案 | 2人估算 | 適合情況 | 本行程判斷 |
-|---|---:|---|---|
-| Swiss Half Fare Card | HKD 2,700（CHF 150／人 × 2） | 一個月內一般交通及大部分山地鐵路半價，但每段需另買票 | **推薦**：按目前估算較省 |
-| Swiss Travel Pass 15天二等座 | HKD 8,982（CHF 499／人 × 2 × HKD 9） | 15日連續無限火車、巴士、船；部分山地交通按規則折扣 | 適合重視上車方便、少買票及大量一般交通的人 |
-
-### 目前行程的兩人交通成本估算
-
-| 方案 | 通行證成本 | 一般瑞士交通 | 合計 | 與另一方案差額 |
-|---|---:|---:|---:|---:|
-| Swiss Half Fare Card | HKD 2,700 | 約 HKD 4,050（估算全價 HKD 8,100 的 50%） | **HKD 6,750** | 基準 |
-| Swiss Travel Pass 15天連續／二等座 | HKD 8,982 | HKD 0（有效期間的一般火車、巴士、船） | **HKD 8,982** | **貴 HKD 2,232** |
-
-> **結論：** 以目前路線及估算，Swiss Half Fare Card 約比 15 天 Swiss Travel Pass 便宜 **HKD 2,232／兩人**。這個比較只涵蓋通行證及一般瑞士公共交通；Pilatus、First、Gornergrat、Glacier 3000、Sunnegga 短線備選、Adelboden 活動、西庸城堡門票及可能的座位預約／附加費仍需按營運商另計。
 
 ## Swiss Travel Pass 對應效益摘要
 
