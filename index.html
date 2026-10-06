@@ -740,13 +740,13 @@ function initRouteMap() {
         zoomControl: true
     }).setView([47.0, 7.5], 7);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     L.control.attribution({ position: 'bottomright', prefix: '' })
-        .addAttribution('© OpenStreetMap · CARTO')
+        .addAttribution('© OpenStreetMap contributors')
         .addTo(map);
 
     const groundCoords = locations.map(loc => loc.coords);
