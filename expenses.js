@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * KWAN & ELLA HONEYMOON EXPENSES CONFIGURATION FILE
+ * SWISS & FRANCE TRAVEL EXPENSES CONFIGURATION FILE
  * =========================================================================
  * 精確預算配置文件（幣種：HKD）。
  * 數據已根據 2026 年瑞士交通最新票價與 Swiss Travel Pass (STP) 效益進行審核。
@@ -42,7 +42,7 @@ const honeymoonExpenses = {
         },
         {
             id: "hotels",
-            name: "奢華住宿 (Accommodation)",
+            name: "住宿",
             icon: "🏨",
             color: "#B8975D",
             items: [
@@ -54,17 +54,6 @@ const honeymoonExpenses = {
                 { name: "D10 Adelboden：The Cambrian Adelboden (1晚)", amount: 3820},
                 { name: "D11-D12 策馬特：Jägerhof Hotel & Apartements (2晚)", amount: 4740 },
                 { name: "D14 洛桑：Royal Savoy Hotel & Spa (1晚)", amount: 2570},
-            ]
-        },
-        {
-            id: "photography",
-            name: "海外婚紗拍攝 (Wedding Photo)",
-            icon: "💍",
-            color: "#ec4899",
-            items: [
-                { name: "巴黎海外婚紗攝影團隊 (D2)", amount: 22000, note: "含攝影師、造型師、全日跟拍" },
-                { name: "格林德瓦高山婚紗拍攝 (D7)", amount: 24000, note: "含艾格峰/夢幻山坡雪山外景" },
-                { name: "婚紗西裝租借、運送", amount: 6000, note: "國際運送及專業護理" }
             ]
         },
         {
@@ -83,26 +72,6 @@ const honeymoonExpenses = {
                 { name: "D13 五湖短線＋Zermatt → Aigle", amount: 1350, note: "上午 Blauherd／Sunnegga 五湖短線纜車及交通，下午 Zermatt → Aigle 區域交通；Glacier 3000 改列 D14" },
                 { name: "D14 Glacier 3000＋西庸城堡＋洛桑轉移", amount: 2600, note: "2人城堡入場、Montreux／Veytaux-Chillon 及 Lausanne 湖畔活動預算；城堡門票另購" },
                 { name: "其他活動 (塞納河遊船等)", amount: 2200, note: "含部分 STP 覆蓋及付費項目" }
-            ]
-        },
-        {
-            id: "dining",
-            name: "餐飲與米其林體驗 (Dining)",
-            icon: "🍽️",
-            color: "#f59e0b",
-            items: [
-                { name: "巴黎米其林/法式浪漫晚宴", amount: 3000, note: "精選高檔法式料理·含酒水" },
-                { name: "瑞士特色餐飲與高山美饌", amount: 7000, note: "15天日常餐飲、起司火鍋等" }
-            ]
-        },
-        {
-            id: "shopping",
-            name: "購物與雜費預備金 (Shopping & Misc)",
-            icon: "🛍️",
-            color: "#8b5cf6",
-            items: [
-                { name: "精品購物與紀念品退稅預算", amount: 5000, note: "巴黎/日內瓦名品購物預留" },
-                { name: "市內交通、小費與雜費", amount: 5000, note: "含 STP 未覆蓋之市區巴士/地鐵" }
             ]
         }
     ]
