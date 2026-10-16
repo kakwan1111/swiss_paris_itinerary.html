@@ -6,7 +6,7 @@ py -m pip install -r requirements.txt
 
 Write-Host 'Building single-file Windows executable...'
 Remove-Item -Recurse -Force build, dist -ErrorAction SilentlyContinue
-pyinstaller --clean --noconfirm --onefile --windowed --name iPhoneDuoMonitor iphone_duo_monitor.py
+py -m PyInstaller --clean --noconfirm --onefile --windowed --name iPhoneDuoMonitor iphone_duo_monitor.py
 
 New-Item -ItemType Directory -Force release | Out-Null
 Compress-Archive -Path dist/iPhoneDuoMonitor.exe -DestinationPath release/iPhoneDuoMonitor-Windows.zip -Force
