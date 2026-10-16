@@ -137,8 +137,11 @@ async def monitor(config: dict[str, Any]) -> None:
                     )
                     if available:
                         notify("Apple 香港庫存提醒", f"{config['model']} / {config['storage']} / {config['color']}：{message}")
-                        update_state(message=f"疑似有貨：{message}。請在瀏覽器內手動確認。")
-                        # 發現疑似有貨後暫停，避免重複通知和重新整理。
+                        update_state(message=f"疑似有貨：{message}。購買頁已保持開啟，請在瀏覽器內手動按 Continue／加入購物袋並完成下單。")
+                        # 發現疑似有貨後停止重新整理，但保持瀏覽器及購買頁開啟。
+                        # 後續選擇、加入購物袋、付款及提交訂單全部由使用者手動完成。
+                        while not stop_event.is_set():
+                            await asyncio.sleep(1)
                         break
                 except Exception as exc:
                     update_state(last_check=time.strftime("%Y-%m-%d %H:%M:%S"), message=f"讀取頁面失敗：{exc}")
